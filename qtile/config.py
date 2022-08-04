@@ -43,7 +43,7 @@ from libqtile.widget.image import Image
 
 
 mod = "mod1"
-terminal = "qterminal" # guess_terminal()
+myTerminal = "qterminal" # guess_terminal()
 Primary_Menu = "dmenu_run"
 
 ################################################################
@@ -82,7 +82,7 @@ keys = [
         lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
     ),
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([mod], "Return", lazy.spawn(myTerminal), desc="Launch terminal"),
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
@@ -96,6 +96,24 @@ keys = [
     Key([mod], "p", lazy.spawn(Primary_Menu), desc="Launch Dmenu"),
 
 ]
+
+################################################################
+########################      COLORS      ######################
+################################################################
+
+colors = [["#2B3339", "#2B3339"],  #background (dark grey) [0]
+          ["#7C8377", "#7C8377"],  #light grey [1]
+          ["#D5C9AB", "#D5C9AB"],  #forground (beige) [2]
+          ["#6272a4", "#6272a4"],  #blue/grey) [3]
+          ["#7FBBB3", "#7FBBB3"],  #blue [4]
+          ["#A7C080", "#A7C080"],  #green [5]
+          ["#E69875", "#E69875"],  #orange [6]
+          ["#D196B3", "#D196B3"],  #pink [7]
+          ["#A7C080", "#A7C080"],  #green [8]
+          ['#ED8082', '#ED8080'],  #red [9]
+          ["#D5C9AB", "#D5C9AB"]]  #beige [10]
+
+
 
 ################################################################
 ########################    WORKSPACES    ######################
@@ -134,6 +152,7 @@ for i in groups:
 
 layouts = [
     layout.Columns(border_focus = colors[3], margin = 2),
+	layout.Max(),
     #layout.Bsp(border_focus = colors[3], margin = 2),
     #layout.RatioTile(border_focus = colors[3], margin = 2),
     #layout.Tile(border_focus = colors[3], margin = 2),
@@ -153,23 +172,6 @@ layouts = [
     # layout.VerticalTile(),
     # layout.Zoomy(),
 ]
-
-
-################################################################
-########################      COLORS      ######################
-################################################################
-
-colors = [["#2B3339", "#2B3339"],  #background (dark grey) [0]
-          ["#7C8377", "#7C8377"],  #light grey [1]
-          ["#D5C9AB", "#D5C9AB"],  #forground (beige) [2]
-          ["#6272a4", "#6272a4"],  #blue/grey) [3]
-          ["#7FBBB3", "#7FBBB3"],  #blue [4]
-          ["#A7C080", "#A7C080"],  #green [5]
-          ["#E69875", "#E69875"],  #orange [6]
-          ["#D196B3", "#D196B3"],  #pink [7]
-          ["#A7C080", "#A7C080"],  #green [8]
-          ['#ED8082', '#ED8080'],  #red [9]
-          ["#D5C9AB", "#D5C9AB"]]  #beige [10]
 
 
 
@@ -241,7 +243,8 @@ screens = [
 					interface = 'wlan0', 
 					format = 'Net: {down} ↓↑ {up}', 
 					padding = 5, 
-					foreground = colors[7]
+					foreground = colors[7], 
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerminal + ' -e nmtui')},
 				), 
 
 				widget.Sep(
@@ -253,7 +256,8 @@ screens = [
 				widget.CPU(
 			    format = ' {freq_current}GHz {load_percent}%',
                 padding = 10,
-                foreground = colors[10]
+                foreground = colors[10], 
+                mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerminal + ' -e htop')},
 				),
 
 				widget.Sep(
@@ -265,7 +269,8 @@ screens = [
 				widget.Memory(
                     foreground = colors[4],
                     fmt = '  {}',
-                    padding = 10
+                    padding = 10, 
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerminal + ' -e htop')},
 
 				),
 
