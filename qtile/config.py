@@ -43,7 +43,7 @@ from libqtile.widget.image import Image
 
 
 mod = "mod1"
-myTerminal = "qterminal"  # guess_terminal()
+myTerminal = "kitty"  # guess_terminal()
 Primary_Menu = "dmenu_run"
 
 ################################################################
