@@ -33,14 +33,13 @@ import os
 import re
 import socket
 import subprocess
-from libqtile import qtile
-from libqtile import bar, layout, widget, hook
+
+from libqtile import bar, hook, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
-from libqtile.widget import Spacer, Backlight
+from libqtile.widget import Backlight, Spacer
 from libqtile.widget.image import Image
-
 
 mod = "mod1"
 myTerminal = "kitty"  # guess_terminal()
@@ -95,11 +94,12 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 
-    # MANUALLY
 
+    Key([mod], "p", lazy.spawn(Primary_Menu),
+        desc="Launch Dmenu"),  # Launching the Dmenu
 
-    Key([mod], "p", lazy.spawn(Primary_Menu), desc="Launch Dmenu"),
-
+    Key(["control", "shift"], "e", lazy.spawn("emacsclient -c -a 'emacs'"),
+        desc='Doom Emacs'),  # Launch EmacsClient
 ]
 
 ################################################################
@@ -200,7 +200,7 @@ layouts = [
 
 widget_defaults = dict(
     font="Ubuntu Bold",
-    fontsize=12,
+    fontsize=10,
     padding=2,
     background=colors[0],
 )
