@@ -2,7 +2,7 @@
 
 
 # Starting picom Compositor
-picom &
+# picom &
 
 # Running emacs daemon
 /usr/bin/emacs --daemon &
