@@ -171,7 +171,7 @@ for i in groups:
 ################################################################
 
 layouts = [
-    layout.MonadTall(border_focus=colors[3], margin=5),
+    layout.MonadTall(border_focus=colors[3], margin=2),
     layout.Max(),
 
     #layout.Columns(border_focus = colors[3], margin = 5),
