@@ -1,3 +1,15 @@
+#+AUTHOR: Qtile Config
+#+property: header-args :tangle config.py
+#+STARTUP: showeverything
+#+AUTHOR: Shashwat Agrawal
+
+
+* Imports
+
+These are the libraries we are going to need while configuring our Window Manager
+
+#+begin_src python
+
 ################################################################
 ########################     IMPORTS     #######################
 ################################################################
@@ -13,9 +25,25 @@ from libqtile.utils import guess_terminal
 from libqtile.widget import Backlight, Spacer
 from libqtile.widget.image import Image
 
+#+end_src
+
+* Variables
+
+I have set the terminal to kitty you can it to whatever terminal emulator you like.
+
+#+begin_src python
+
 mod = "mod1"
 myTerminal = "kitty"  # guess_terminal()
 Primary_Menu = "dmenu_run"
+
+#+end_src
+
+* Keybindings
+
+The mod key is set to the alt key
+
+#+begin_src python
 
 ################################################################
 ########################   KEYBINDINGS   #######################
@@ -73,6 +101,15 @@ keys = [
         desc='Doom Emacs'),  # Launch EmacsClient
 ]
 
+#+end_src
+
+
+* Color Schemes
+
+I have added 2 color schemes for now I might add more in the future
+
+#+begin_src python
+
 ################################################################
 ########################      COLORS      ######################
 ################################################################
@@ -103,6 +140,14 @@ colors = [["#282a36", "#282a36"],  # background (dark grey) [0]
 # ["#A7C080", "#A7C080"],  #green [8]
 # ['#ED8082', '#ED8080'],  #red [9]
 # ["#D5C9AB", "#D5C9AB"]]  #beige [10]
+
+#+end_src
+
+* Work Spaces
+
+I have let the Work Spaces let to the default number I might put in some meaningful there in the future
+
+#+begin_src python
 
 ################################################################
 ########################    WORKSPACES    ######################
@@ -135,6 +180,13 @@ for i in groups:
         ]
     )
 
+#+end_src
+
+* Layouts
+
+I have tested a few of the layouts but the one which I really liked is the MonadTall so I have choose that for my workspace you can have multiple layouts as per your need, I have commented the few of them you can also try them
+#+begin_src python
+
 ################################################################
 ########################     LAYOUTS      ######################
 ################################################################
@@ -166,6 +218,14 @@ layouts = [
     # layout.Zoomy(),
 ]
 
+#+end_src
+
+* Top Bar
+
+This is the Status bar or you can say empty status bar there is nothing in the bar just the blank screen
+
+#+begin_src python
+
 widget_defaults = dict(
     font="Ubuntu Bold",
     fontsize=10,
@@ -173,6 +233,14 @@ widget_defaults = dict(
     background=colors[0],
 )
 extension_defaults = widget_defaults.copy()
+
+#+end_src
+
+* Actual Top Bar
+
+This is a actual Top Bar containing the widgets, Work Space, icons, etc...
+
+#+begin_src python
 
 ################################################################
 ########################      Top Bar     ######################
@@ -300,6 +368,14 @@ screens = [
     ),
 ]
 
+#+end_src
+
+* Mouse layouts
+
+This are the stuff you can do with 'mod' key and 'mouse' buttons
+
+#+begin_src python
+
 # Drag floating layouts.
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(),
@@ -308,6 +384,12 @@ mouse = [
          start=lazy.window.get_size()),
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
+
+#+end_src
+
+* Some Other stuff
+
+#+begin_src python
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
@@ -357,3 +439,5 @@ def autostart():
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
+
+#+end_src
