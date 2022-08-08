@@ -1,4 +1,4 @@
-#+AUTHOR: Qtile Config
+#+TITLE: Qtile Config
 #+property: header-args :tangle config.py
 #+STARTUP: showeverything
 #+AUTHOR: Shashwat Agrawal
