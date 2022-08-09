@@ -3,6 +3,17 @@
 #+STARTUP: showeverything
 #+AUTHOR: Shashwat Agrawal
 
+* Table of Contents :toc:
+- [[#imports][Imports]]
+- [[#variables][Variables]]
+- [[#keybindings][Keybindings]]
+- [[#color-schemes][Color Schemes]]
+- [[#work-spaces][Work Spaces]]
+- [[#layouts][Layouts]]
+- [[#top-bar][Top Bar]]
+- [[#actual-top-bar][Actual Top Bar]]
+- [[#mouse-layouts][Mouse layouts]]
+- [[#some-other-stuff][Some Other stuff]]
 
 * Imports
 
