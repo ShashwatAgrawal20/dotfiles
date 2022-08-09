@@ -1,0 +1,21 @@
+#+title:     My Dmenu Config
+#+author:    Shashwat Agrawal
+
+* dmenu - dynamic menu
+
+dmenu is an efficient dynamic menu for X. It was originally designed for dwm. But it is now used by a wide variety of user on different platforms
+
+
+** Run dmenu
+
+You can run the dmenu using the following command.
+
+#+begin_example
+dmenu_run
+#+end_example
+
+The dmenu is not just the application run launcher it can do more than that.
+
++ You add more features to your dmenu by getting the patches from the [[https://suckless.org/][Suckless]] and installing them in your dmenu.
+
++ You can write your own scripts to perform some task and run them using dmenu. ( That a very cool feature of the dmenu )
