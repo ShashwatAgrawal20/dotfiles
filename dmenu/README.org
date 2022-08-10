@@ -19,7 +19,7 @@ cd DOTFILES/dmenu
 
 
 #+begin_example
-sudo make install && sudo rm config.h
+sudo make clean install && sudo rm config.h
 #+end_example
 
 #+begin_example
