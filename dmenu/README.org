@@ -5,6 +5,27 @@
 
 dmenu is an efficient dynamic menu for X. It was originally designed for dwm. But it is now used by a wide variety of user on different platforms
 
+** Install my dmenu
+
+This is the dmenu which I patched. You can download this repository and have your dmenu the way I have set it to run.
+
+After you have the copy of the source.
+
++ Get in the dmenu directory and run the command below
+
+#+begin_example
+cd DOTFILES/dmenu
+#+end_example
+
+
+#+begin_example
+sudo make install && sudo rm config.h
+#+end_example
+
+#+begin_example
+sudo make install
+#+end_example
+
 
 ** Run dmenu
 
