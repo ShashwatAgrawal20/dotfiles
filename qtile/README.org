@@ -35,7 +35,7 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from libqtile.widget import Backlight, Spacer
 from libqtile.widget.image import Image
-
+from libqtile.dgroups import simple_key_binder
 #+end_src
 
 * Variables
@@ -156,7 +156,13 @@ colors = [["#282a36", "#282a36"],  # background (dark grey) [0]
 
 * Work Spaces
 
-I have let the Work Spaces let to the default number I might put in some meaningful there in the future
+I have customized some the work spaces according to my need you can also add some stuff to it if you want following the same pattern
+
+   1. name ( Give numbers as you will be able to switch work spaces using the mod + name(number) )
+
+   2. label ( This is the design you want to assign to you work space to be )
+
+   3. layout ( This is the layout you want your workspace to operate in by default its max )
 
 #+begin_src python
 
@@ -164,7 +170,14 @@ I have let the Work Spaces let to the default number I might put in some meaning
 ########################    WORKSPACES    ######################
 ################################################################
 
-groups = [Group(i) for i in "123456789"]
+groups = [Group(name="1", label="", layout="monadtall"),
+          Group(name="2", label="", layout="monadtall"),
+          Group(name="3", label="", layout="monadtall"),
+          Group(name="4", label="", layout="monadtall"),
+]
+
+dgroups_key_binder = simple_key_binder(mod)
+
 
 for i in groups:
     keys.extend(
@@ -278,8 +291,8 @@ screens = [
                 widget.GroupBox(
                     margin_x=5,
                     active=colors[2],
-                    inactive=colors[1],
-                    highlight_color=["#2B3339", "A7C080"],
+                    inactive=["#3b7fe5"],
+                    highlight_color=colors[1],
                     highlight_method='line',
                 ),
 
@@ -380,6 +393,8 @@ screens = [
 ]
 
 #+end_src
+
+#+RESULTS:
 
 * Mouse layouts
 
