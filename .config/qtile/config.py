@@ -34,8 +34,7 @@ keys = [
         desc="Move window focus to other window"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left(),
-        desc="Move window to the left"),
+    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
     Key([mod, "shift"], "l", lazy.layout.shuffle_right(),
         desc="Move window to the right"),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
@@ -114,7 +113,7 @@ groups = [Group(name="1", label="", layout="monadtall"),
           Group(name="2", label="", layout="monadtall"),
           Group(name="3", label="", layout="monadtall"),
           Group(name="4", label="", layout="monadtall"),
-          ]
+]
 
 dgroups_key_binder = simple_key_binder(mod)
 
@@ -208,8 +207,8 @@ screens = [
                 widget.GroupBox(
                     margin_x=5,
                     active=colors[2],
-                    inactive=["#3b7fe5"],
-                    highlight_color=colors[1],
+                    inactive=["FFD43B"],
+                    highlight_color=["#2B3339", "4B8BBE"],
                     highlight_method='line',
                 ),
 
