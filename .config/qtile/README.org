@@ -4,7 +4,6 @@
 #+AUTHOR: Shashwat Agrawal
 
 * Table of Contents :toc:
-  - [[#config][Config]]
 - [[#imports][Imports]]
 - [[#variables][Variables]]
 - [[#keybindings][Keybindings]]
@@ -15,10 +14,6 @@
 - [[#actual-top-bar][Actual Top Bar]]
 - [[#mouse-layouts][Mouse layouts]]
 - [[#some-other-stuff][Some Other stuff]]
-
-** Config
-#+attr_html: :alt Qtile_Desktop :align left
-[[https://raw.githubusercontent.com/ShashwatAgrawal20/DOTFILES/main/.config/.screenshots/Screenshot-1.png][Qtile_Desktop]]
 
 * Imports
 
@@ -296,8 +291,8 @@ screens = [
                 widget.GroupBox(
                     margin_x=5,
                     active=colors[2],
-                    inactive=["#3b7fe5"],
-                    highlight_color=colors[1],
+                    inactive=["FFD43B"],
+                    highlight_color=["#2B3339", "4B8BBE"],
                     highlight_method='line',
                 ),
 
