@@ -1,0 +1,23 @@
+#+title: DOTFILES
+#+Author: Shashwat Agrawal
+#+Description: Configuration files of the programs that I use.
+
+* Table of Contents :toc:
+- [[#about-this-repository][About this repository]]
+  - [[#get-the-repository][Get the repository]]
+
+* About this repository
+
+This repository serve as the config of the programs that I use in my day to day life.
+
+** Get the repository
+
+#+begin_example
+
+git clone https://github.com/ShashwatAgrawal20/DOTFILES.git
+
+#+end_example
+
+OR
+
+*** [[https://github.com/ShashwatAgrawal20/DOTFILES][You can directly browse the repository]]
