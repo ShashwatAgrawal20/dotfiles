@@ -4,6 +4,7 @@
 #+AUTHOR: Shashwat Agrawal
 
 * Table of Contents :toc:
+  - [[#config][Config]]
 - [[#imports][Imports]]
 - [[#variables][Variables]]
 - [[#keybindings][Keybindings]]
@@ -14,6 +15,10 @@
 - [[#actual-top-bar][Actual Top Bar]]
 - [[#mouse-layouts][Mouse layouts]]
 - [[#some-other-stuff][Some Other stuff]]
+
+** Config
+#+attr_html: :alt Qtile_Desktop :align left
+[[https://raw.githubusercontent.com/ShashwatAgrawal20/DOTFILES/main/.config/.screenshots/Screenshot-1.png][Qtile_Desktop]]
 
 * Imports
 
