@@ -1,6 +1,11 @@
 #+title:     My Dmenu Config
 #+author:    Shashwat Agrawal
 
+* Table of Contents :toc:
+- [[#dmenu---dynamic-menu][dmenu - dynamic menu]]
+  - [[#install-my-dmenu][Install my dmenu]]
+  - [[#run-dmenu][Run dmenu]]
+
 * dmenu - dynamic menu
 
 dmenu is an efficient dynamic menu for X. It was originally designed for dwm. But it is now used by a wide variety of user on different platforms
