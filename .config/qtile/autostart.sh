@@ -4,8 +4,9 @@
 # Starting picom Compositor
 # picom &
 
+# Running emacs daemon
+/usr/bin/emacs --daemon &
+
 # Restoring the wallpaper
 nitrogen --restore &
 
-# Running emacs daemon
-/usr/bin/emacs --daemon &
