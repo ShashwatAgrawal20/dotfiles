@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'morhetz/gruvbox'
+Plug 'preservim/nerdtree'
 
 call plug#end()
 
@@ -17,14 +18,18 @@ syntax enable
 filetype plugin indent on
 set updatetime=300
 set incsearch                   " Incremental search
-set smarttab
 set hidden                      " Needed to keep multiple buffers open
 set nobackup                    " No auto backups
 set noswapfile                  " No swap
 set number relativenumber       " Display line numbers
 set hlsearch 
-set incsearch
 set autoindent 
+set expandtab                   " Use spaces instead of tabs.
+set smarttab                    " Be smart using tabs ;)
+set shiftwidth=4                " One tab == four spaces.
+set tabstop=4                   " One tab == four spaces.
+set ic
+set smartcase
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" --> Color Scheme Settings 
@@ -54,13 +59,13 @@ let g:lightline = {
 set laststatus=2
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
+" => NerdTree Configuration
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set expandtab                   " Use spaces instead of tabs.
-set smarttab                    " Be smart using tabs ;)
-set shiftwidth=4                " One tab == four spaces.
-set tabstop=4                   " One tab == four spaces.
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Coc Configuration
@@ -106,6 +111,37 @@ function! ShowDocumentation()
     call feedkeys('K', 'in')
   endif
 endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Run the Code Lens action on the current line.
+nmap <leader>cl  <Plug>(coc-codelens-action)
 
 " Mappings for CoCList
 " Show all diagnostics.
