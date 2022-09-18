@@ -44,7 +44,7 @@ I have set the terminal to kitty you can it to whatever terminal emulator you li
 
 #+begin_src python
 
-mod = "mod1"
+mod = "mod4"
 myTerminal = "kitty"  # guess_terminal()
 Primary_Menu = "dmenu_run"
 
@@ -52,7 +52,7 @@ Primary_Menu = "dmenu_run"
 
 * Keybindings
 
-The mod key is set to the alt key
+The mod key is set to the Super key OR Windows key
 
 #+begin_src python
 

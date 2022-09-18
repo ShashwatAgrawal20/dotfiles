@@ -14,7 +14,7 @@ from libqtile.widget import Backlight, Spacer
 from libqtile.widget.image import Image
 from libqtile.dgroups import simple_key_binder
 
-mod = "mod1"
+mod = "mod4"
 myTerminal = "kitty"  # guess_terminal()
 Primary_Menu = "dmenu_run"
 
