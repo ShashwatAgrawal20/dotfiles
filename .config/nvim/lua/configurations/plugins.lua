@@ -42,7 +42,7 @@ packer.init({
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-    
+
   use 'wbthomason/packer.nvim' -- Packer can manage itself
 
   use 'nvim-lua/popup.nvim'    -- Popup Api from vim in neovim
@@ -51,7 +51,7 @@ return require('packer').startup(function(use)
 
   use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
 
-  use "windwp/nvim-autopairs" 
+  use "windwp/nvim-autopairs"
 
   use 'lunarvim/darkplus.nvim'
 
