@@ -78,20 +78,29 @@ keys = [
 ########################      COLORS      ######################
 ################################################################
 
+colors = [["#282c34", "#282c34"],
+          ["#1c1f24", "#1c1f24"],
+          ["#dfdfdf", "#dfdfdf"],
+          ["#ff6c6b", "#ff6c6b"],
+          ["#98be65", "#98be65"],
+          ["#da8548", "#da8548"],
+          ["#51afef", "#51afef"],
+          ["#c678dd", "#c678dd"],
+          ["#46d9ff", "#46d9ff"],
+          ["#a9a1e1", "#a9a1e1"]]
+
 # Dracula
-
-colors = [["#282a36", "#282a36"],  # background (dark grey) [0]
-          ["#44475a", "#44475a"],  # light grey [1]
-          ["#f8f8f2", "#f8f8f2"],  # forground (white) [2]
-          ["#6272a4", "#6272a4"],  # blue/grey) [3]
-          ["#8be9fd", "#8be9fd"],  # cyan [4]
-          ["#50fa7b", "#50fa7b"],  # green [5]
-          ["#ffb86c", "#ffb86c"],  # orange [6]
-          ["#ff79c6", "#ff79c6"],  # pink [7]
-          ["#bd93f9", "#bd93f9"],  # purple [8]
-          ['#ff5555', '#ff5555'],  # red [9]
-          ["#f1fa8c", "#f1fa8c"]]  # yellow [10]
-
+# colors = [["#282a36", "#282a36"],  # background (dark grey) [0]
+#           ["#44475a", "#44475a"],  # light grey [1]
+#           ["#f8f8f2", "#f8f8f2"],  # forground (white) [2]
+#           ["#6272a4", "#6272a4"],  # blue/grey) [3]
+#           ["#8be9fd", "#8be9fd"],  # cyan [4]
+#           ["#50fa7b", "#50fa7b"],  # green [5]
+#           ["#ffb86c", "#ffb86c"],  # orange [6]
+#           ["#ff79c6", "#ff79c6"],  # pink [7]
+#           ["#bd93f9", "#bd93f9"],  # purple [8]
+#           ['#ff5555', '#ff5555'],  # red [9]
+#           ["#f1fa8c", "#f1fa8c"]]  # yellow [10]
 
 # colors = [["#2B3339", "#2B3339"],  #background (dark grey) [0]
 # ["#7C8377", "#7C8377"],  #light grey [1]
@@ -148,7 +157,7 @@ for i in groups:
 ################################################################
 
 layouts = [
-    layout.MonadTall(border_focus=colors[3], margin=2),
+    layout.MonadTall(border_focus=colors[9], margin=3),
     layout.Max(),
 
     #layout.Columns(border_focus = colors[3], margin = 5),
@@ -221,7 +230,8 @@ screens = [
                 ),
 
                 widget.WindowName(
-                    foreground=colors[5]
+                    foreground=colors[7],
+                    padding = 1
                 ),
 
                 widget.Chord(
@@ -230,73 +240,94 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
+
                 widget.Systray(),
 
-                widget.Sep(
-                    linewidth=2,
-                    padding=5,
-                    foreground=colors[2]
+                widget.TextBox(
+                       text = '',
+                       font = "Ubuntu Mono",
+                       background = colors[0],
+                       foreground = colors[3],
+                       padding = 0,
+                       fontsize = 37
                 ),
 
                 widget.Net(
-                    interface='wlan0',
+                    #interface='wlan0',
                     format=' {down} ↓↑ {up}',
                     padding=5,
-                    foreground=colors[7],
+                    foreground=colors[1],
+                    background=colors[3],
                     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(
                         myTerminal + ' -e nmtui')},
                 ),
 
-                widget.Sep(
-                    linewidth=2,
-                    padding=5,
-                    foreground=colors[2]
+                widget.TextBox(
+                       text = '',
+                       font = "Ubuntu Mono",
+                       background = colors[3],
+                       foreground = colors[4],
+                       padding = 0,
+                       fontsize = 37
                 ),
 
                 widget.CPU(
                     format=' {freq_current}GHz {load_percent}%',
-                    padding=10,
-                    foreground=colors[10],
+                    padding=5,
+                    foreground=colors[1],
+                    background=colors[4],
                     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(
                         myTerminal + ' -e htop')},
                 ),
 
-                widget.Sep(
-                    linewidth=2,
-                    padding=5,
-                    foreground=colors[2]
+                widget.TextBox(
+                       text = '',
+                       font = "Ubuntu Mono",
+                       background = colors[4],
+                       foreground = colors[5],
+                       padding = 0,
+                       fontsize = 37
                 ),
 
                 widget.Memory(
-                    foreground=colors[4],
+                    foreground=colors[1],
+                    background=colors[5],
                     fmt=' {}',
-                    padding=10,
+                    padding=5,
                     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(
                         myTerminal + ' -e htop')},
 
                 ),
 
-                widget.Sep(
-                    linewidth=2,
-                    padding=5,
-                    foreground='#ffffff'
+                widget.TextBox(
+                       text = '',
+                       font = "Ubuntu Mono",
+                       background = colors[5],
+                       foreground = colors[6],
+                       padding = 0,
+                       fontsize = 37
                 ),
 
                 widget.Clock(
                     format=' %a %d %m %Y |  %I:%M %p',
-                    foreground=colors[8],
+                    foreground=colors[1],
+                    background=colors[6],
                     padding=10,
                 ),
 
-                widget.Sep(
-                    linewidth=2,
-                    padding=5,
-                    foreground='#ffffff'
+                widget.TextBox(
+                       text = '',
+                       font = "Ubuntu Mono",
+                       background = colors[6],
+                       foreground = colors[7],
+                       padding = 0,
+                       fontsize = 37
                 ),
 
                 widget.QuickExit(
                     fmt=' ',
-                    foreground=colors[9],
+                    foreground=colors[1],
+                    background=colors[7],
                     padding=10
                 ),
 
@@ -323,7 +354,7 @@ follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(
-    border_focus = colors[8],
+    border_focus = colors[9],
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,

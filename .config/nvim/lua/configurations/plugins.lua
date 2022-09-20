@@ -42,17 +42,37 @@ packer.init({
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-    
-  use 'wbthomason/packer.nvim' -- Packer can manage itself
 
-  use 'nvim-lua/popup.nvim'    -- Popup Api from vim in neovim
+  use 'wbthomason/packer.nvim'          -- Packer can manage itself
 
-  use 'nvim-lua/plenary.nvim'  -- Function used by lots of lua plugins
+  use 'nvim-lua/popup.nvim'             -- Popup Api from vim in neovim
 
-  use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
+  use 'nvim-lua/plenary.nvim'           -- Function used by lots of lua plugins
 
-  use "windwp/nvim-autopairs" 
+  use "windwp/nvim-autopairs"
 
-  use 'lunarvim/darkplus.nvim'
+  use 'gruvbox-community/gruvbox'       -- Gruvbox theme
+
+-- Nvim LSP
+
+  use 'neovim/nvim-lspconfig'
+
+  use 'williamboman/nvim-lsp-installer'
+
+  use 'hrsh7th/cmp-nvim-lsp'
+
+  use 'hrsh7th/nvim-cmp'
+
+  use 'hrsh7th/cmp-buffer'
+
+  use 'L3MON4D3/LuaSnip'                -- Snippet engien
+
+  use 'saadparwaiz1/cmp_luasnip'
+
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  }
+
 
 end)
