@@ -6,11 +6,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'gruvbox-community/gruvbox'
-Plug 'preservim/nerdtree'
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'honza/vim-snippets'
-Plug 'HerringtonDarkholme/yats.vim'
 
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -18,7 +14,6 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let mapleader = " "
-nnoremap <leader>f :Files<CR>
 syntax enable
 filetype plugin indent on
 set updatetime=300
@@ -36,6 +31,11 @@ set shiftwidth=4                " One tab == four spaces.
 set tabstop=4                   " One tab == four spaces.
 set ic
 set smartcase
+let &t_SI = "\e[5 q"
+let &t_EI = "\e[2 q"
+nnoremap <leader>f :Lexplore<CR>
+let g:netrw_browse_split = 3
+let g:netrw_winsize = 30 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" --> Color Scheme Settings 
@@ -44,13 +44,6 @@ set smartcase
 colorscheme gruvbox
 highlight Normal ctermbg=0
 set background=dark
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" --> General Settings 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let &t_SI = "\e[5 q"
-let &t_EI = "\e[2 q"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" --> Status Line
@@ -63,15 +56,6 @@ let g:lightline = {
 
 " This will always show the statusline  
 set laststatus=2
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => NerdTree Configuration
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Coc Configuration
