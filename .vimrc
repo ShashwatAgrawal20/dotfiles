@@ -34,6 +34,7 @@ set smartcase
 let &t_SI = "\e[5 q"
 let &t_EI = "\e[2 q"
 nnoremap <leader>f :Lexplore<CR>
+let g:netrw_keepdir = 0 
 let g:netrw_browse_split = 3
 let g:netrw_winsize = 30 
 
