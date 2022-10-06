@@ -27,11 +27,6 @@ cd DOTFILES/dmenu
 sudo make clean install && sudo rm config.h
 #+end_example
 
-#+begin_example
-sudo make install
-#+end_example
-
-
 ** Run dmenu
 
 You can run the dmenu using the following command.
