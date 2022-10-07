@@ -337,7 +337,7 @@ screens = [
                 ),
 
                 widget.Net(
-                    interface='wlan0',
+                    #interface='wlan0',
                     format=' {down} ↓↑ {up}',
                     padding=5,
                     foreground=colors[1],
