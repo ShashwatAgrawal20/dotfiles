@@ -13,9 +13,17 @@ This repository serve as the config of the programs that I use in my day to day 
 ** Get the repository
 
 #+begin_example
+git clone https://github.com/ShashwatAgrawal20/dotfiles
+#+end_example
 
-git clone https://github.com/ShashwatAgrawal20/DOTFILES.git
+#+begin_example
+cd dotfiles
+#+end_example
 
+*** Executing the setup file 
+
+#+begin_example
+bash setup.sh 
 #+end_example
 
 OR
