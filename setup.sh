@@ -30,7 +30,7 @@ if [[ $install_confirm = 'Y' || $install_confirm = 'y' ]]; then
     echo "**        Installing Dependencies, this may take some time       **"
     echo "*******************************************************************"
     echo ""
-    sudo pacman -S --needed qtile base-devel nitrogen vim zsh curl cowsay otf-font-awesome ttf-font-awesome powerline-fonts ttf-jetbrains-mono python-pip && \
+    sudo pacman --needed --ask 4 -Sy - < pkg_list.txt || echo "Something went Wrong" && \
         pip install psutil && \
         curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim && \
         git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh && \
