@@ -58,6 +58,7 @@ if [[ $install_confirm = 'Y' || $install_confirm = 'y' ]]; then
     ln -s ~/dotfiles/.vimrc ~/
     ln -s ~/dotfiles/.zshrc ~/
     ln -s ~/dotfiles/.p10k.zsh ~/
+    ln -s ~/dotfiles/.config/rofi ~/.config/
 
     echo ""
     echo "Installation Successfully Completed" | cowsay
