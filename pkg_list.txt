@@ -11,6 +11,7 @@ otf-font-awesome
 powerline-fonts
 python-pip
 qtile
+rofi
 ttf-font-awesome
 ttf-hack
 ttf-jetbrains-mono
