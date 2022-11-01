@@ -1,12 +1,15 @@
 adobe-source-code-pro-fonts
 adobe-source-sans-fonts
+alacritty
 base-devel
 clang
 cowsay
 curl
+exa
 nitrogen
 nodejs
 npm
+nvim
 otf-font-awesome
 powerline-fonts
 python-pip

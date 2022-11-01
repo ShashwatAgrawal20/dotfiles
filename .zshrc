@@ -11,6 +11,7 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=vim
+export TERM="xterm-256color"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -108,9 +109,28 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Git Bare repository
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
-alias ls='ls -l --color=auto'
+# General alias
+alias vim='nvim'
+alias icat='kitty +kitten icat'
+
+# Changing "ls" to "exa"
+alias ls='exa -la --group-directories-first'
+alias la='exa -a --group-directories-first'  # all files and dirs
+alias ll='exa -l --group-directories-first'  # long format
+alias lt='exa -aT --group-directories-first' # tree listing
+alias l.='exa -a | egrep "^\."'
+
+# Alias for git
+alias addup='git add -u'
+alias addall='git add .'
+alias branch='git branch'
+alias checkout='git checkout'
+alias clone='git clone'
+alias commit='git commit -m'
+alias pull='git pull'
+alias push='git push'
+alias gdiff='git diff'
+alias stat='git status'  # 'status' is protected name so using 'stat' instead
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

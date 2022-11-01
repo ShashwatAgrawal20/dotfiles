@@ -54,11 +54,13 @@ if [[ $install_confirm = 'Y' || $install_confirm = 'y' ]]; then
     cd ~/dotfiles/.config/dmenu && sudo make install && sudo rm config.h && cd ~/dotfiles
 
     # Creating symbolic links 
-    ln -s ~/dotfiles/.config/qtile ~/.config/
-    ln -s ~/dotfiles/.vimrc ~/
-    ln -s ~/dotfiles/.zshrc ~/
-    ln -s ~/dotfiles/.p10k.zsh ~/
-    ln -s ~/dotfiles/.config/rofi ~/.config/
+    ln -sf ~/dotfiles/.config/qtile ~/.config/
+    ln -sf ~/dotfiles/.vimrc ~/
+    ln -sf ~/dotfiles/.zshrc ~/
+    ln -sf ~/dotfiles/.p10k.zsh ~/
+    ln -sf ~/dotfiles/.config/rofi ~/.config/
+    ln -sf ~/dotfiles/.config/kitty/ ~/.config/
+    ln -sf ~/dotfiles/.config/nvim ~/.config
 
     echo ""
     echo "Installation Successfully Completed" | cowsay
