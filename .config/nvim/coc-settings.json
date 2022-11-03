@@ -1,10 +1,5 @@
 {
-    "suggest.noselect": false, 
-    "coc.preferences.formatOnSaveFiletypes": [
-        "javascript",
-        "typescript",
-        "json",
-        "javascriptreact",
-        "typescriptreact"
-    ]
+    "suggest.noselect": false,
+    "coc.preferences.formatOnSaveFiletypes": ["*"],
+    "prettier.tabWidth": 4
 }
