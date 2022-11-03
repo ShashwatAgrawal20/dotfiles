@@ -15,6 +15,7 @@ Plug 'mattn/emmet-vim'
 Plug 'itchyny/lightline.vim'
 
 call plug#end()
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" --> General Settings 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -22,16 +23,16 @@ call plug#end()
 let mapleader = " "
 syntax enable
 filetype plugin indent on
-set updatetime=100
+set updatetime=300
 set incsearch                   " Incremental search
-set clipboard+=unnamedplus      " allows vim to access the system clipboard
+set clipboard=""
 set hidden                      " Needed to keep multiple buffers open
 set nobackup                    " No auto backups
 set noswapfile                  " No swap
 set number relativenumber       " Display line numbers
 set hlsearch 
 set autoindent 
-set wrap
+set nowrap
 set smartindent
 set expandtab                   " Use spaces instead of tabs.
 set smarttab                    " Be smart using tabs ;)
@@ -41,6 +42,30 @@ set softtabstop=4
 set ic
 set smartcase
 set signcolumn=yes
+set guicursor=""
+set scrolloff=8
+set colorcolumn=80
+nnoremap <Esc><Esc> :nohls<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" --> Clipboard Settings 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" greatest remap ever
+xnoremap <leader>p "_dP
+
+" next greatest remap ever : asbjornHaland
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nmap <leader>Y "+Y
+
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+vnoremap <leader>d" "_d
+
+" This is going to get me cancelled
+inoremap("<C-c>", "<Esc>")
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" --> Netrw Settings 
