@@ -13,6 +13,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'mattn/emmet-vim'
 Plug 'itchyny/lightline.vim'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter-context'
 
 call plug#end()
 
@@ -84,10 +86,7 @@ let g:netrw_keepdir = 0
 "" --> Color Scheme Settings 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-colorscheme gruvbox
-set background=dark
-let g:gruvbox_contrast_dark='hard'
-highlight Normal ctermbg=NONE 
+colorscheme tokyonight-night
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" --> Status Line
