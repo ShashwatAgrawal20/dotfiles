@@ -1,0 +1,6 @@
+require('config.set')
+require('config.plugins')
+require('config.autopairs')
+require('config.cmp')
+require('config.lsp')
+require('config.telescope')
