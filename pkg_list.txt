@@ -6,11 +6,13 @@ clang
 cowsay
 curl
 exa
+git
+neovim
 nitrogen
 nodejs
 npm
-nvim
 otf-font-awesome
+picom
 powerline-fonts
 python-pip
 qtile
