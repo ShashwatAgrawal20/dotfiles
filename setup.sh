@@ -37,11 +37,11 @@ if [[ $install_confirm = 'Y' || $install_confirm = 'y' ]]; then
         cp ~/.zshrc ~/.zshrc.orig && \
         chsh -s $(which zsh) && \
         git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k && \
-        sudo git clone https://github.com/ShashwatAgrawal20/wallpaper.git /usr/share/backgrounds/custom
+        sudo git clone https://github.com/ShashwatAgrawal20/wallpaper.git /usr/share/backgrounds
 
     vim -c 'PlugInstall' -c qa
 
-    nitrogen --set-scaled --random --save /usr/share/backgrounds/custom
+    nitrogen ---scaled --random --save /usr/share/backgrounds/wallpaper
 
     echo ""
     echo "*******************************************************************"
