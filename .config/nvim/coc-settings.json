@@ -1,5 +1,6 @@
 {
     "suggest.noselect": false,
     "coc.preferences.formatOnSaveFiletypes": ["*"],
-    "prettier.tabWidth": 4
+    "prettier.tabWidth": 4,
+    "snippets.ultisnips.pythonPrompt": false
 }

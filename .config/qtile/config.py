@@ -118,12 +118,6 @@ keys = [
     Key([mod], "d", lazy.spawn(Secondary_Menu), desc="Launch Dmenu"),  # Launching Dmenu
     Key([mod], "Return", lazy.spawn(myTerminal), desc="Launch terminal"),
     Key([mod], "b", lazy.spawn(myBrowser), desc="Launch Browser"),
-    Key(
-        ["control", "shift"],
-        "e",
-        lazy.spawn("emacsclient -c -a 'emacs'"),
-        desc="Doom Emacs",
-    ),  # Launch EmacsClient
 ]
 
 ################################################################
