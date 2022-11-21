@@ -1,6 +1,5 @@
 adobe-source-code-pro-fonts
 adobe-source-sans-fonts
-alacritty
 base-devel
 clang
 cowsay
@@ -17,10 +16,15 @@ powerline-fonts
 python-pip
 qtile
 rofi
+ttf-dejavu
 ttf-font-awesome
 ttf-hack
+ttf-hack-nerd
 ttf-jetbrains-mono
 ttf-joypixels
+ttf-nerd-fonts-symbols-1000-em-mono
+ttf-nerd-fonts-symbols-common
+ttf-roboto
 ttf-ubuntu-font-family
 vim
 zsh
