@@ -30,18 +30,22 @@ if [[ $install_confirm = 'Y' || $install_confirm = 'y' ]]; then
     echo "**        Installing Dependencies, this may take some time       **"
     echo "*******************************************************************"
     echo ""
-    sudo pacman --needed --ask 4 -Sy - < pkg_list.txt || echo "Something went Wrong" && \
-        pip install psutil && \
-        curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim && \
-        git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh && \
-        cp ~/.zshrc ~/.zshrc.orig && \
-        chsh -s $(which zsh) && \
-        git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k && \
-        sudo git clone https://github.com/ShashwatAgrawal20/wallpaper.git /usr/share/backgrounds
 
-    vim -c 'PlugInstall' -c qa
+    (sudo pacman --needed --ask 4 -Sy - < pkg_list.txt || echo "Something went Wrong") && \
+        (pip install psutil || echo "psutil installation failed") && \
+        (curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim || echo "vim-plug installation failed") && \
+        (sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' || echo "unable to get vim-plug from nvim") && \
+        (git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh || echo "oh-my-zsh installation failed") && \
+        (cp ~/.zshrc ~/.zshrc.orig || echo "original zshrc config copy failed") && \
+        (chsh -s $(which zsh) || echo "failed shell change") && \
+        (git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k || echo "failed installing powerlevel10k") && \
+        (git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions || echo "failed installing zsh-autosuggestions") && \
+        (git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting || echo "failed installing zsh-syntax-highlighting") && \
+        (git clone https://github.com/ShashwatAgrawal20/wallpaper.git ~/Pictures/wallpaper || echo "wallpaper cloning failed")
 
-    nitrogen ---scaled --random --save /usr/share/backgrounds/wallpaper
+    nvim -c 'PlugInstall' -c qa
+
+    (nitrogen --set-scaled --random --save ~/Pictures/wallpaper/ || echo "failed to set wallpaper")
 
     echo ""
     echo "*******************************************************************"

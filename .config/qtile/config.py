@@ -35,7 +35,8 @@ keys = [
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+    Key([mod], "space", lazy.layout.next(),
+        desc="Move window focus to other window"),
     # Shuffling the windows
     Key(
         [mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"
@@ -79,7 +80,8 @@ keys = [
         desc="Grow window up",
     ),
     Key([mod], "r", lazy.layout.reset(), desc="Reset all window sizes"),
-    Key([mod], "n", lazy.layout.normalize(), desc="Normalize window size ratio"),
+    Key([mod], "n", lazy.layout.normalize(),
+        desc="Normalize window size ratio"),
     Key(
         [mod],
         "m",
@@ -114,16 +116,12 @@ keys = [
         desc="Toggle floating window",
     ),
     # Launching Stuff
-    Key([mod], "p", lazy.spawn(Primary_Menu), desc="Launch Dmenu"),  # Launching rofi
-    Key([mod], "d", lazy.spawn(Secondary_Menu), desc="Launch Dmenu"),  # Launching Dmenu
+    Key([mod], "p", lazy.spawn(Primary_Menu),
+        desc="Launch Rofi"),  # Launching rofi
+    Key([mod], "d", lazy.spawn(Secondary_Menu),
+        desc="Launch Dmenu"),  # Launching Dmenu
     Key([mod], "Return", lazy.spawn(myTerminal), desc="Launch terminal"),
     Key([mod], "b", lazy.spawn(myBrowser), desc="Launch Browser"),
-    Key(
-        ["control", "shift"],
-        "e",
-        lazy.spawn("emacsclient -c -a 'emacs'"),
-        desc="Doom Emacs",
-    ),  # Launch EmacsClient
 ]
 
 ################################################################
@@ -160,7 +158,8 @@ for i in groups:
                 [mod, "shift"],
                 i.name,
                 lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
+                desc="Switch to & move focused window to group {}".format(
+                    i.name),
             ),
             # Or, use below if you prefer not to switch to that group.
             # # mod1 + shift + letter of group = move focused window to group
@@ -205,7 +204,8 @@ screens = [
                     filename="~/.config/qtile/icon/python.png",
                     scale="False",
                     margin=5,
-                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(Primary_Menu)},
+                    mouse_callbacks={
+                        "Button1": lambda: qtile.cmd_spawn(Primary_Menu)},
                 ),
                 widget.Sep(linewidth=1, padding=10, foreground=colors[2]),
                 widget.GroupBox(
