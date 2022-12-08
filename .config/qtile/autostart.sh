@@ -3,7 +3,7 @@
 
 # Starting picom Compositor
 # picom &
-picom --experimental-backends &
+# picom --experimental-backends &
 
 # Running emacs daemon
 # /usr/bin/emacs --daemon &

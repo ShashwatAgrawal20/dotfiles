@@ -39,6 +39,8 @@ if [[ $install_confirm = 'Y' || $install_confirm = 'y' ]]; then
         (cp ~/.zshrc ~/.zshrc.orig || echo "original zshrc config copy failed") && \
         (chsh -s $(which zsh) || echo "failed shell change") && \
         (git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k || echo "failed installing powerlevel10k") && \
+        (git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions || echo "failed installing zsh-autosuggestions") && \
+        (git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting || echo "failed installing zsh-syntax-highlighting") && \
         (git clone https://github.com/ShashwatAgrawal20/wallpaper.git ~/Pictures/wallpaper || echo "wallpaper cloning failed")
 
     nvim -c 'PlugInstall' -c qa
