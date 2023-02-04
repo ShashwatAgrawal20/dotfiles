@@ -3,19 +3,29 @@
 
 static int topbar = 1;                      /* -b  option; if 0, dmenu appears at bottom     */
 /* -fn option overrides fonts[0]; default X11 font or font set */
-static const char *fonts[] = {
-	"monospace:size=10"
+#if PANGO_PATCH
+static char font[] = "monospace 10";
+#else
+#if XRESOURCES_PATCH
+static char *fonts[] =
+#else
+static const char *fonts[] =
+#endif // XRESOURCES_PATCH
+{
+	"Hack:pixelsize=11:antialias=true:autohint=true",
+	"JoyPixels:pixelsize=8:antialias=true:autohint=true"
 };
+#endif // PANGO_PATCH
+
 static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
 static const char *colors[SchemeLast][2] = {
 	/*     fg         bg       */
-	[SchemeNorm] = { "#bbbbbb", "#222222" },
-	[SchemeSel] = { "#eeeeee", "#005577" },
-	[SchemeOut] = { "#000000", "#00ffff" },
-	[SchemeMid] = { "#eeeeee", "#770000" },
-	[SchemeSelHighlight] = { "#ffc978", "#005577" },
-	[SchemeNormHighlight] = { "#ffc978", "#222222" },
-	[SchemeOutHighlight] = { "#ffc978", "#00ffff" },
+	[SchemeNorm] = { "#cccccc", "#282c34" },
+	[SchemeSel] = { "#1c1f24", "#c678dd" },
+	[SchemeSelHighlight] = { "#98be65", "#000000" },
+	[SchemeNormHighlight] = { "#98be65", "#000000" },
+	[SchemeOut] = { "#000000", "#51afef" },
+	[SchemeMid] = { "#d7d7d7", "#1c1f24" },
 };
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
 static unsigned int lines      = 0;

@@ -3,22 +3,17 @@
 ################################################################
 
 import os
-import re
-import socket
 import subprocess
 from libqtile import bar, hook, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
-from libqtile.widget import Backlight, Spacer
-from libqtile.widget.image import Image
 from libqtile.dgroups import simple_key_binder
 import colors
 
 mod = "mod4"
 myTerminal = "kitty"  # guess_terminal()
 myBrowser = "brave"
-Primary_Menu = "rofi -show run"
+Primary_Menu = "rofi -show drun"
 Secondary_Menu = "dmenu_run"
 colors, backgroundColor, foregroundColor, workspaceColor, chordsColor = colors.doomone()
 
@@ -174,7 +169,7 @@ for i in groups:
 
 layout_theme = {
     "margin": 8,
-    "border_width": 4,
+    "border_width": 2,
     "border_focus": colors[8],
     "border_normal": backgroundColor,
 }
@@ -318,6 +313,7 @@ screens = [
                 widget.CurrentLayoutIcon(
                     scale=0.5, foreground=foregroundColor, background=backgroundColor
                 ),
+                widget.Systray(),
             ],
             # 20,
             size=36,

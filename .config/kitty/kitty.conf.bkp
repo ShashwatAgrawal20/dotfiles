@@ -198,7 +198,7 @@ cursor #528bff
 #: precedence. Also, the cursor colors are modified if the cell
 #: background and foreground colors have very low contrast.
 
-cursor_text_color #111111
+cursor_text_color #1E1E2E
 
 #: The color of text under the cursor. If you want it rendered with
 #: the background color of the cell underneath instead, use the
@@ -317,7 +317,7 @@ mouse_hide_wait 3.0
 #: robustly with the ever-changing sea of bugs that is Cocoa is too
 #: much effort.
 
-url_color #0087bd
+url_color #F5E0DC
 url_style curly
 
 #: The color and style for highlighting URLs on mouse-over. url_style
@@ -739,16 +739,16 @@ placement_strategy center
 #: placed centrally. A value of top-left means the padding will be
 #: only at the bottom and right edges.
 
-active_border_color #00ff00
+active_border_color #B4BEFE
 
 #: The color for the border of the active window. Set this to none to
 #: not draw borders around the active window.
 
-inactive_border_color #cccccc
+inactive_border_color #6C7086
 
 #: The color for the border of inactive windows.
 
-bell_border_color #ff5a00
+bell_border_color #F9E2AF
 
 #: The color for the border of inactive windows in which a bell has
 #: occurred.
@@ -965,11 +965,11 @@ active_tab_title_template none
 #: Template to use for active tabs. If not specified falls back to
 #: tab_title_template.
 
-active_tab_foreground   #000
-active_tab_background   #eee
+active_tab_foreground   #11111B
+active_tab_background   #CBA6F7
 active_tab_font_style   bold-italic
-inactive_tab_foreground #444
-inactive_tab_background #999
+inactive_tab_foreground #CDD6F4
+inactive_tab_background #181825
 inactive_tab_font_style normal
 
 #: Tab bar colors and styles.
@@ -988,12 +988,12 @@ tab_bar_margin_color none
 
 #: Color scheme {{{
 
-foreground #bbc2cf
-background #282c34
+foreground #CDD6F4
+background #1E1E2E
 
 #: The foreground and background colors.
 
-background_opacity 0.8
+background_opacity 1.0
 
 #: The opacity of the background. A number between zero and one, where
 #: one is opaque and zero is fully transparent. This will only work if
@@ -1048,8 +1048,8 @@ dim_opacity 0.75
 #: How much to dim text that has the DIM/FAINT attribute set. One
 #: means no dimming and zero means fully dimmed (i.e. invisible).
 
-selection_foreground #bbc2cf
-selection_background #3e4451
+selection_foreground #1E1E2E
+selection_background #F5E0DC
 
 #: The foreground and background colors for text selected with the
 #: mouse. Setting both of these to none will cause a "reverse video"
@@ -1065,69 +1065,45 @@ selection_background #3e4451
 #: dull and bright version, for the first 16 colors. You can set the
 #: remaining 240 colors as color16 to color255.
 
-color0 #1c1f24
-color8 #5b6268
+# black
+color0 #45475A
+color8 #585B70
 
-#: black
+# red
+color1 #F38BA8
+color9 #F38BA8
 
-color1 #ff6c6b
-color9 #da8548
+# green
+color2  #A6E3A1
+color10 #A6E3A1
 
-#: red
+# yellow
+color3  #F9E2AF
+color11 #F9E2AF
 
-color2  #98be65
-color10 #4db5bd
+# blue
+color4  #89B4FA
+color12 #89B4FA
 
-#: green
+# magenta
+color5  #F5C2E7
+color13 #F5C2E7
 
-color3  #da8548
-color11 #ecbe7b
+# cyan
+color6  #94E2D5
+color14 #94E2D5
 
-#: yellow
+# white
+color7  #BAC2DE
+color15 #A6ADC8
 
-color4  #51afef
-color12 #3071db
-
-#: blue
-
-color5  #c678dd
-color13 #a9a1e1
-
-#: magenta
-
-color6  #5699af
-color14 #46d9ff
-
-#: cyan
-
-color7  #e6e6e6
-color15 #e6e6e6
-
-#: white
-
-mark1_foreground black
-
-#: Color for marks of type 1
-
-mark1_background #98d3cb
-
-#: Color for marks of type 1 (light steel blue)
-
-mark2_foreground black
-
-#: Color for marks of type 2
-
-mark2_background #f2dcd3
-
-#: Color for marks of type 1 (beige)
-
-mark3_foreground black
-
-#: Color for marks of type 3
-
-mark3_background #f274bc
-
-#: Color for marks of type 3 (violet)
+# Colors for marks (marked text in the terminal)
+mark1_foreground #1E1E2E
+mark1_background #B4BEFE
+mark2_foreground #1E1E2E
+mark2_background #CBA6F7
+mark3_foreground #1E1E2E
+mark3_background #74C7EC
 
 #: }}}
 
