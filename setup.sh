@@ -45,52 +45,42 @@ fi
 
 if ! pip install psutil; then
     echo "Error: psutil installation failed."
-    exit 1
 fi
 
 if ! git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh; then
     echo "Error: oh-my-zsh installation failed."
-    exit 1
 fi
 
 if ! chsh -s $(which zsh); then
     echo "Error: failed shell change."
-    exit 1
 fi
 
 if ! git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k; then
     echo "Error: failed installing powerlevel10k."
-    exit 1
 fi
 
 if ! git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim; then
     echo "Error: failed installing packer"
-    exit 1
 fi
 
-if ! git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions; then
+if ! git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions; then
     echo "Error: failed installing zsh-autosuggestions."
-    exit 1
 fi
 
 if ! git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting; then
     echo "Error: failed installing zsh-syntax-highlighting."
-    exit 1
 fi
 
 if ! git clone https://github.com/ShashwatAgrawal20/wallpaper.git ~/Pictures/wallpaper; then
     echo "Error: failed installing wallpapers"
-    exit 1
 fi
 
 if ! (git clone https://aur.archlinux.org/paru-bin ~/Downloads/ && cd ~/Downloads/paru-bin/ && makepkg -si); then
     echo "Error: failed installing paru"
-    exit 1
 fi
 
 if ! nitrogen --set-scaled --random --save ~/Pictures/wallpaper/; then
     echo "Error: failed to set the wallpaper"
-    exit 1
 fi
 
 echo ""
@@ -101,7 +91,7 @@ echo ""
 
 # There might be a better way of implementing this, but for now it is what it is
 mv $PWD ~/dotfiles
-cd ~/dotfiles/.config/dmenu && sudo make install && sudo rm config.h && cd ~/dotfiles
+cd ~/dotfiles/.config/dmenu && sudo make install && sudo rm config.h
 
 # Creating symbolic links
 ln -sf ~/dotfiles/.config/qtile ~/.config/
