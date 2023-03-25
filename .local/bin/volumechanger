@@ -1,0 +1,29 @@
+#!/bin/bash
+
+function send_notification() {
+    volume=$(pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')
+    notify-send -a "volumechanger" -u low -r "9993" -h int:value:"$volume" -i "audio-volume-$1" "Volume: ${volume}%" -t 2000
+}
+
+case $1 in
+    up)
+        # Set the volume on (if it was muted)
+        pactl set-sink-mute @DEFAULT_SINK@ 0
+        pactl set-sink-volume @DEFAULT_SINK@ +5%
+        send_notification high
+        ;;
+    down)
+        pactl set-sink-mute @DEFAULT_SINK@ 0
+        pactl set-sink-volume @DEFAULT_SINK@ -5%
+        send_notification low
+        ;;
+    mute)
+        pactl set-sink-mute @DEFAULT_SINK@ toggle
+        if [ "$(pactl get-sink-mute @DEFAULT_SINK@)" = "Mute: yes" ]; then
+            notify-send -i "audio-volume-muted" -a "volumechanger" -t 2000 -r 9993 -u low "Muted"
+        else
+            send_notification medium
+        fi
+        ;;
+esac
+
