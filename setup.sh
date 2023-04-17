@@ -39,20 +39,20 @@ echo "******************************************************"
 echo ""
 
 if ! sudo pacman --needed --ask 4 -Sy - < pkg_list.txt; then
-    echo "Error: pacman installation failed."
+    echo "Error: failed to install dependencies."
     exit 1
 fi
 
 if ! pip install psutil; then
-    echo "Error: psutil installation failed."
+    echo "Error: failed to install psutil."
 fi
 
 if ! git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh; then
-    echo "Error: oh-my-zsh installation failed."
+    echo "Error: failed installing oh-my-zsh."
 fi
 
 if ! chsh -s $(which zsh); then
-    echo "Error: failed shell change."
+    echo "Error: failed to change the default shell to zsh."
 fi
 
 if ! git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k; then
@@ -60,7 +60,7 @@ if ! git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUST
 fi
 
 if ! git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim; then
-    echo "Error: failed installing packer"
+    echo "Error: failed installing packer.nvim."
 fi
 
 if ! git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions; then
@@ -72,15 +72,15 @@ if ! git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CU
 fi
 
 if ! git clone https://github.com/ShashwatAgrawal20/wallpaper.git ~/Pictures/wallpaper; then
-    echo "Error: failed installing wallpapers"
+    echo "Error: failed installing wallpapers."
 fi
 
 if ! (git clone https://aur.archlinux.org/paru-bin ~/Downloads/ && cd ~/Downloads/paru-bin/ && makepkg -si); then
-    echo "Error: failed installing paru"
+    echo "Error: failed installing paru."
 fi
 
 if ! nitrogen --set-scaled --random --save ~/Pictures/wallpaper/; then
-    echo "Error: failed to set the wallpaper"
+    echo "Error: failed to set the wallpaper."
 fi
 
 echo ""
