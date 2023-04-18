@@ -102,6 +102,8 @@ ln -sf ~/dotfiles/.config/rofi ~/.config/
 ln -sf ~/dotfiles/.config/kitty/ ~/.config/
 ln -sf ~/dotfiles/.config/nvim ~/.config
 ln -sf ~/dotfiles/.config/picom ~/.config
+ln -sf ~/dotfiles/.tmux.conf ~/
+ln -sf ~/dotfiles/.zsh_profile ~/
 
 nvim -u ~/.config/nvim/lua/theprimeagen/packer.lua -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 

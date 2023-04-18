@@ -1,0 +1,4 @@
+VIM="nvim"
+
+# Where should I put you?
+bindkey -s ^f "tmux-sessionizer\n"

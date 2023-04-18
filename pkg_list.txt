@@ -19,6 +19,7 @@ powerline-fonts
 python-pip
 qtile
 rofi
+tmux
 ttf-dejavu
 ttf-font-awesome
 ttf-hack
