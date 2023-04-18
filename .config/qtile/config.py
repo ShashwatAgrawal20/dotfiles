@@ -11,7 +11,7 @@ from libqtile.dgroups import simple_key_binder
 import colors
 
 mod = "mod4"
-myTerminal = "kitty -e tmux"  # guess_terminal()
+myTerminal = "kitty"  # guess_terminal()
 myBrowser = "chromium"
 Primary_Menu = "rofi -show drun"
 Secondary_Menu = "dmenu_run"
