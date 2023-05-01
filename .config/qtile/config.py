@@ -137,13 +137,13 @@ keys = [
 
 groups = [
     Group(name="1", label="", layout="monadtall"),
-    Group(name="2", label="", layout="monadtall"),
-    Group(name="3", label="", layout="monadtall"),
-    Group(name="4", label="", layout="monadtall"),
-    Group(name="5", label="", layout="monadtall"),
+    Group(name="2", label="", layout="monadtall"),
+    Group(name="3", label="", layout="monadtall"),
+    Group(name="4", label="", layout="monadtall"),
+    Group(name="5", label="", layout="monadtall"),
     Group(name="6", label="", layout="monadtall"),
     Group(name="7", label="", layout="monadtall"),
-    Group(name="8", label="", layout="monadtall"),
+    Group(name="8", label="", layout="monadtall"),
     Group(name="9", label="", layout="monadtall"),
 ]
 
@@ -295,7 +295,7 @@ screens = [
                 ),
                 widget.Sep(linewidth=0, padding=10),
                 widget.TextBox(
-                    text="",
+                    text="󰍛",
                     fontsize=14,
                     font="JetBrainsMono Nerd Font",
                     foreground=colors[3],
