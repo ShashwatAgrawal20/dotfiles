@@ -5,7 +5,10 @@ end
 
 comment.setup {
   pre_hook = function(ctx)
-    local U = require "Comment.utils"
+    local status_ok, U = pcall(require, "Comment.utils")
+    if not status_ok then
+      return
+    end
 
     local status_utils_ok, utils = pcall(require, "ts_context_commentstring.utils")
     if not status_utils_ok then

@@ -1,6 +1,11 @@
-require'nvim-treesitter.configs'.setup {
+local status_ok, ntreeconf = pcall(require, "nvim-treesitter.configs")
+if not status_ok then
+  return
+end
+
+ntreeconf.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "help", "javascript", "typescript", "c", "lua", "python" },
+  ensure_installed = { "vimdoc", "javascript", "typescript", "c", "lua", "python", "rust" },
 
   autotag = {
       enable = true,
@@ -27,4 +32,3 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
-

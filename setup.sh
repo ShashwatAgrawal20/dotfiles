@@ -83,6 +83,10 @@ if ! nitrogen --set-scaled --random --save ~/Pictures/wallpaper/; then
     echo "Error: failed to set the wallpaper."
 fi
 
+if ! mkdir ~/.local/bin; then
+    echo "Error: failed creating bin"
+fi
+
 echo ""
 echo "*******************************************************************"
 echo "**              Moving the files to their location               **"
@@ -102,7 +106,9 @@ ln -sf ~/dotfiles/.config/rofi ~/.config/
 ln -sf ~/dotfiles/.config/kitty/ ~/.config/
 ln -sf ~/dotfiles/.config/nvim ~/.config
 ln -sf ~/dotfiles/.config/picom ~/.config
+ln -sf ~/dotfiles/.config/dunst ~/.config
 ln -sf ~/dotfiles/.tmux.conf ~/
+ln -sf ~/dotfiles/.tmux-* ~/
 ln -sf ~/dotfiles/.zsh_profile ~/
 ln -sf ~/dotfiles/.local/bin/* ~/.local/bin/
 
@@ -113,7 +119,7 @@ echo "Installation Successfully Completed" | cowsay
 echo ""
 
 while true; do
-    read -p "Do you want to reboot to get your dtos? [Y/n] " yn
+    read -p "Do you want to reboot? [Y/n] " yn
     case $yn in
         [Yy]* ) reboot;;
         [Nn]* ) break;;

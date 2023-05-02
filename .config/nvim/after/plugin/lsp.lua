@@ -1,4 +1,7 @@
-local lsp = require("lsp-zero")
+local status_ok, lsp = pcall(require, "lsp-zero")
+if not status_ok then
+  return
+end
 lsp.preset("recommended")
 require('luasnip').filetype_extend("javascript", { "javascriptreact" })
 require('luasnip').filetype_extend("javascript", { "html" })
@@ -6,19 +9,11 @@ require('luasnip').filetype_extend("javascript", { "html" })
 lsp.ensure_installed({
   'tsserver',
   'eslint',
+  'rust_analyzer',
 })
 
 -- Fix Undefined global 'vim'
-lsp.configure('sumneko_lua', {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
-    }
-})
-
+lsp.nvim_workspace()
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}

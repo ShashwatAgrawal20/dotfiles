@@ -1,13 +1,16 @@
 [global]
     monitor = 0
-    follow = mouse
+    follow = none
     width = 350
+    origin = top-right
     offset = 10x43
+    notification_limit = 20
     progress_bar = true
     progress_bar_height = 10
     progress_bar_frame_width = 1
     progress_bar_min_width = 150
     progress_bar_max_width = 400
+    icon_corner_radius = 0
     indicate_hidden = yes
     shrink = no
     separator_height = 2
@@ -18,8 +21,8 @@
     frame_color = "#9399b2"
     separator_color = frame
     sort = yes
-    idle_threshold = 120
-    font = JetBrains Mono Nerd Font Medium 10
+    idel_threshold = 120
+    font = JetBarins Mono Nerd Font Medium 10
     line_height = 0
     markup = full
     format = "<span weight='bold'>%s</span>\n%b"
@@ -32,20 +35,23 @@
     stack_duplicates = true
     hide_duplicate_count = false
     show_indicators = yes
-    icon_position = left
-    min_icon_size = 0
-    max_icon_size = 32
-    icon_theme = Pop
     enable_recursive_icon_lookup = true
+    icon_theme = Pop
+    icon_position = left
+    min_icon_size = 32
+    max_icon_size = 128
+    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
     sticky_history = yes
     history_length = 20
+    dmenu = /usr/bin/dmenu -p dunst:
+    browser = /usr/bin/xdg-open
     always_run_script = true
     title = Dunst
     class = Dunst
     ignore_dbusclose = false
     force_xwayland = false
     force_xinerama = false
-    mouse_left_click = do_action, close_current
+    mouse_left_click = close_current
     mouse_middle_click = do_action, close_current
     mouse_right_click = close_all
 

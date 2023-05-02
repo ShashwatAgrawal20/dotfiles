@@ -1,10 +1,12 @@
 adobe-source-code-pro-fonts
 adobe-source-sans-fonts
 base-devel
+bc
 cowsay
 curl
 dunst
 exa
+fzf
 git
 imagemagick
 kitty
@@ -18,6 +20,7 @@ pop-icon-theme
 powerline-fonts
 python-pip
 qtile
+ripgrep
 rofi
 tmux
 ttf-dejavu
@@ -27,7 +30,6 @@ ttf-hack-nerd
 ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd
 ttf-joypixels
-ttf-nerd-fonts-symbols-2048-em-mono
 ttf-nerd-fonts-symbols-common
 ttf-roboto
 ttf-ubuntu-font-family
