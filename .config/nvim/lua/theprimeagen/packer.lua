@@ -67,5 +67,5 @@ return require('packer').startup(function(use)
         config = function() require("nvim-autopairs").setup {} end
     }
     use "numToStr/Comment.nvim"
-    use 'JoosepAlviste/nvim-ts-context-commentstring'
+    use({ 'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter' })
 end)
