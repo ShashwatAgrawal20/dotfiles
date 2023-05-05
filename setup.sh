@@ -79,7 +79,7 @@ if ! (git clone https://aur.archlinux.org/paru-bin ~/Downloads/ && cd ~/Download
     echo "Error: failed installing paru."
 fi
 
-if ! nitrogen --set-scaled --random --save ~/Pictures/wallpaper/; then
+if ! nitrogen --set-scaled --save ~/Pictures/wallpaper/0013.jpeg; then
     echo "Error: failed to set the wallpaper."
 fi
 
