@@ -99,7 +99,6 @@ cd ~/dotfiles/.config/dmenu && sudo make install && sudo rm config.h
 
 # Creating symbolic links
 ln -sf ~/dotfiles/.config/qtile ~/.config/
-ln -sf ~/dotfiles/.vimrc ~/
 ln -sf ~/dotfiles/.zshrc ~/
 ln -sf ~/dotfiles/.p10k.zsh ~/
 ln -sf ~/dotfiles/.config/rofi ~/.config/

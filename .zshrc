@@ -19,7 +19,7 @@ fi
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=nvim
 export TERM="xterm-256color"
-export PATH=~/.local/bin:$PATH
+export PATH=~/.local/bin:~/.cargo/bin:$PATH
 
 
 # Set name of the theme to load --- if set to "random", it will
