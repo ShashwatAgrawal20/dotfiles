@@ -9,7 +9,6 @@ require('luasnip.loaders.from_vscode').lazy_load()
 
 lsp.ensure_installed({
     'tsserver',
-    'eslint',
     'rust_analyzer',
 })
 
