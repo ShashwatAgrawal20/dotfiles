@@ -10,7 +10,7 @@ from libqtile.lazy import lazy
 from libqtile.dgroups import simple_key_binder
 import colors
 
-mod = "mod4"
+mod = "mod1"
 myTerminal = "kitty"  # guess_terminal()
 myBrowser = "chromium"
 Primary_Menu = "rofi -show drun"

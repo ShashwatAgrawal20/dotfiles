@@ -35,6 +35,7 @@ lsp.setup_nvim_cmp({
     completion = {
         completeopt = 'menu,menuone,noinsert'
     },
+    documentation = cmp.config.window.bordered(),
 })
 
 lsp.set_preferences({

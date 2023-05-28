@@ -3,7 +3,7 @@
 This is my personal configuration for the Qtile window manager, a lightweight and highly customizable tiling window manager for X11. The configuration includes keyboard shortcuts for various actions such as moving and resizing windows, switching between layouts, launching applications, and running custom scripts. The shortcuts are designed to be efficient and easy to remember, making it faster and more convenient to manage windows and perform common tasks. The configuration also includes settings for the appearance and behavior of the window manager, such as the default layout, the color scheme, and the font. Overall, this configuration reflects my personal preferences and workflow, and I hope it can be useful or inspiring to others who use Qtile or are interested in customizing their own window manager.
 
 ## Keyboard Shortcuts
-- **Mod = Windows**
+- **Mod = Alt**
 - **Browser = Chromium**
 - **Terminal = Kitty**
 
