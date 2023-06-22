@@ -29,7 +29,7 @@ return require('packer').startup(function(use)
         end,
     }
 
-    use({ "nvim-treesitter/nvim-treesitter-context", after = 'nvim-treesitter'})
+    use({ "nvim-treesitter/nvim-treesitter-context", after = 'nvim-treesitter' })
     use('nvim-treesitter/playground')
     use('theprimeagen/harpoon')
     use('mbbill/undotree')

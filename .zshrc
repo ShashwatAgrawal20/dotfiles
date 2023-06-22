@@ -21,7 +21,6 @@ export EDITOR=nvim
 # export TERM="xterm-256color"
 export PATH=~/.local/bin:~/.cargo/bin:$PATH
 
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -163,11 +162,6 @@ if [ -f "/home/shashwat/mambaforge/etc/profile.d/mamba.sh" ]; then
     . "/home/shashwat/mambaforge/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
-
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # bun completions
 [ -s "/home/shashwat/.bun/_bun" ] && source "/home/shashwat/.bun/_bun"
