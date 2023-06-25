@@ -12,7 +12,7 @@ import colors
 
 mod = "mod1"
 myTerminal = "kitty"  # guess_terminal()
-myBrowser = "chromium"
+myBrowser = "firefox"
 Primary_Menu = "rofi -show drun"
 Secondary_Menu = "dmenu_run"
 colors, backgroundColor, foregroundColor, workspaceColor, chordsColor = colors.doomone()
@@ -117,18 +117,6 @@ keys = [
         desc="Launch Dmenu"),  # Launching Dmenu
     Key([mod], "Return", lazy.spawn(myTerminal), desc="Launch terminal"),
     Key([mod], "b", lazy.spawn(myBrowser), desc="Launch Browser"),
-
-
-    # Custom Scripts
-    Key([mod, "shift"], "u", lazy.spawn(
-        "bash ~/.local/bin/volumechanger up", shell=True),
-        desc="Increases Volume"),
-    Key([mod, "shift"], "d", lazy.spawn(
-        "bash ~/.local/bin/volumechanger down", shell=True),
-        desc="Increases Volume"),
-    Key([mod, "shift"], "m", lazy.spawn(
-        "bash ~/.local/bin/volumechanger mute", shell=True),
-        desc="Increases Volume"),
 ]
 
 ################################################################

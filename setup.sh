@@ -110,6 +110,8 @@ ln -sf ~/dotfiles/.tmux.conf ~/
 ln -sf ~/dotfiles/.tmux-* ~/
 ln -sf ~/dotfiles/.zsh_profile ~/
 ln -sf ~/dotfiles/.local/bin/* ~/.local/bin/
+ln -sf ~/dotfiles/.config/i3 ~/.config/
+ln -sf ~/dotfiles/.config/i3status ~/.config/
 
 nvim -u ~/.config/nvim/lua/theprimeagen/packer.lua -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 

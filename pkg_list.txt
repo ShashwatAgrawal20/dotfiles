@@ -8,6 +8,8 @@ dunst
 exa
 fzf
 git
+i3status
+i3-wm
 imagemagick
 kitty
 neovim
@@ -35,3 +37,4 @@ ttf-roboto
 ttf-ubuntu-font-family
 xclip
 zsh
+
