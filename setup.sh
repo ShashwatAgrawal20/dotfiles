@@ -55,10 +55,6 @@ if ! chsh -s $(which zsh); then
     echo "Error: failed to change the default shell to zsh."
 fi
 
-if ! git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k; then
-    echo "Error: failed installing powerlevel10k."
-fi
-
 if ! git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim; then
     echo "Error: failed installing packer.nvim."
 fi
@@ -100,7 +96,6 @@ cd ~/dotfiles/.config/dmenu && sudo make install && sudo rm config.h
 # Creating symbolic links
 ln -sf ~/dotfiles/.config/qtile ~/.config/
 ln -sf ~/dotfiles/.zshrc ~/
-ln -sf ~/dotfiles/.p10k.zsh ~/
 ln -sf ~/dotfiles/.config/rofi ~/.config/
 ln -sf ~/dotfiles/.config/kitty/ ~/.config/
 ln -sf ~/dotfiles/.config/nvim ~/.config
