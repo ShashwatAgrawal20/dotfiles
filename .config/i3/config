@@ -53,7 +53,7 @@ tiling_drag modifier titlebar
 
 # start a terminal
 bindsym $mod+Return exec kitty
-bindsym $mod+b exec firefox
+bindsym $mod+b exec brave
 
 # kill focused window
 bindsym $mod+w kill
@@ -176,4 +176,4 @@ bar {
 }
 
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id picom
+# exec --no-startup-id picom

@@ -1,5 +1,6 @@
 [global]
     monitor = 0
+    geometry = "300x5-30+20"
     follow = none
     width = 350
     origin = top-right

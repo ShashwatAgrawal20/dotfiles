@@ -20,7 +20,7 @@ otf-font-awesome
 picom
 pop-icon-theme
 powerline-fonts
-python-pip
+python-psutil
 qtile
 ripgrep
 rofi

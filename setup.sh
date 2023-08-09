@@ -43,10 +43,6 @@ if ! sudo pacman --needed --ask 4 -Sy - < pkg_list.txt; then
     exit 1
 fi
 
-if ! pip install psutil; then
-    echo "Error: failed to install psutil."
-fi
-
 if ! git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh; then
     echo "Error: failed installing oh-my-zsh."
 fi
