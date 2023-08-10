@@ -67,7 +67,7 @@ if ! git clone https://github.com/ShashwatAgrawal20/wallpaper.git ~/Pictures/wal
     echo "Error: failed installing wallpapers."
 fi
 
-if ! (git clone https://aur.archlinux.org/paru-bin ~/Downloads/ && cd ~/Downloads/paru-bin/ && makepkg -si); then
+if ! (git clone https://aur.archlinux.org/paru-bin ~/Downloads/paru-bin/ && cd ~/Downloads/paru-bin/ && makepkg -si); then
     echo "Error: failed installing paru."
 fi
 
