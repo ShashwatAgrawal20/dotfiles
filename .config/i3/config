@@ -176,4 +176,4 @@ bar {
 }
 
 exec --no-startup-id nitrogen --restore
-# exec --no-startup-id picom
+exec --no-startup-id picom
