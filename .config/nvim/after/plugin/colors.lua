@@ -1,8 +1,4 @@
-local status_ok, rspine = pcall(require, "rose-pine")
-if not status_ok then
-    return
-end
-rspine.setup({
+require("rose-pine").setup({
     disable_background = true
 })
 

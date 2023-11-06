@@ -12,7 +12,6 @@ NC='\033[0m'
 backup_dir="$HOME/dotfiles_backup_$(date + '%Y-%m-%d_%H:%M:%S')"
 github_items=(
     "https://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh Oh-My-Zsh"
-    "https://github.com/wbthomason/packer.nvim $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim Packer.nvim"
     "https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions Zsh-Autosuggestions"
     "https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting Zsh-Syntax-Highlighting"
     "https://github.com/ShashwatAgrawal20/wallpaper.git $HOME/Pictures/wallpaper Wallpapers"
@@ -32,6 +31,7 @@ backup_list=(
     "$HOME/.config/i3/"
     "$HOME/.config/i3status/"
     "$HOME/.config/dmenu/"
+    "$HOME/.config/README.org"
 )
 
 # Georgeous Functions
@@ -145,8 +145,6 @@ ln -sf $HOME/dotfiles/.zsh_profile $HOME/
 ln -sf $HOME/dotfiles/.local/bin/* $HOME/.local/bin/
 ln -sf $HOME/dotfiles/.config/* $HOME/.config/
 rm $HOME/.config/README.org
-
-nvim -u $HOME/.config/nvim/lua/config/packer.lua -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 echo ""
 echo "Installation Successfully Completed" | cowsay
