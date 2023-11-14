@@ -20,7 +20,6 @@ backup_list=(
     "$HOME/.zshrc"
     "$HOME/.tmux.conf"
     "$HOME/.tmux-*"
-    "$HOME/.zsh_profile"
     "$HOME/.local/bin/"
     "$HOME/.config/qtile/"
     "$HOME/.config/nvim/"
@@ -31,7 +30,6 @@ backup_list=(
     "$HOME/.config/i3/"
     "$HOME/.config/i3status/"
     "$HOME/.config/dmenu/"
-    "$HOME/.config/README.org"
 )
 
 # Georgeous Functions
@@ -141,10 +139,8 @@ cd .config/dmenu && sudo make clean install && sudo rm config.h
 ln -sf $HOME/dotfiles/.zshrc $HOME/
 ln -sf $HOME/dotfiles/.tmux.conf $HOME/
 ln -sf $HOME/dotfiles/.tmux-* $HOME/
-ln -sf $HOME/dotfiles/.zsh_profile $HOME/
 ln -sf $HOME/dotfiles/.local/bin/* $HOME/.local/bin/
 ln -sf $HOME/dotfiles/.config/* $HOME/.config/
-rm $HOME/.config/README.org
 
 echo ""
 echo "Installation Successfully Completed" | cowsay

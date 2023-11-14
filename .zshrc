@@ -1,8 +1,9 @@
 # Path to your oh-my-zsh installation.
+VIM="nvim"
 export ZSH="$HOME/.oh-my-zsh"
-export EDITOR=nvim
-# export TERM="xterm-256color"
+export EDITOR=$VIM
 export PATH=~/.local/bin:~/.cargo/bin:$PATH
+# export TERM="xterm-256color"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -70,7 +71,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git bgnotify zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -99,7 +100,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source ~/.zsh_profile
+
+bindkey -s ^f "tmux-sessionizer\n"
 
 # General alias
 alias vim='nvim'
@@ -111,15 +113,3 @@ alias la='exa -a --group-directories-first'  # all files and dirs
 alias ll='exa -l --group-directories-first'  # long format
 alias lt='exa -aT --group-directories-first' # tree listing
 alias l.='exa -a | egrep "^\."'
-
-# Alias for git
-alias addup='git add -u'
-alias addall='git add .'
-alias branch='git branch'
-alias checkout='git checkout'
-alias clone='git clone'
-alias commit='git commit -m'
-alias pull='git pull'
-alias push='git push'
-alias gdiff='git diff'
-alias stat='git status'  # 'status' is protected name so using 'stat' instead
