@@ -53,7 +53,7 @@ tiling_drag modifier titlebar
 
 # start a terminal
 bindsym $mod+Return exec kitty
-bindsym $mod+b exec brave
+bindsym $mod+b exec firefox
 
 # kill focused window
 bindsym $mod+w kill
