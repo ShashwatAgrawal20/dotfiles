@@ -9,7 +9,7 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
-backup_dir="$HOME/dotfiles_backup_$(date + '%Y-%m-%d_%H:%M:%S')"
+backup_dir="$HOME/dotfiles_backup_$(date +'%Y-%m-%d_%H:%M:%S')"
 github_items=(
     "https://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh Oh-My-Zsh"
     "https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions Zsh-Autosuggestions"
@@ -19,7 +19,8 @@ github_items=(
 backup_list=(
     "$HOME/.zshrc"
     "$HOME/.tmux.conf"
-    "$HOME/.tmux-*"
+    "$HOME/.tmux-cht-command"
+    "$HOME/.tmux-cht-languages"
     "$HOME/.local/bin/"
     "$HOME/.config/qtile/"
     "$HOME/.config/nvim/"
@@ -45,8 +46,7 @@ warning() {
 backup() {
     local source_path="$1"
     if [ -e "$source_path" ]; then
-        mv "$source_path" "$backup_dir/"
-        success "Backed up: $source_path to $backup_dir/"
+        mv "$source_path" "$backup_dir/" 2>/dev/null && success "Backed up: $source_path to $backup_dir/" || warning "Failed to back up: $source_path"
     fi
 }
 install_git_repo() {
@@ -60,7 +60,6 @@ install_git_repo() {
     fi
 }
 mkdir -p $backup_dir
-mkdir -p "$HOME/.local/bin"
 
 echo ""
 echo "******************************************"
@@ -133,6 +132,7 @@ echo ""
 
 # There might be a better way of implementing this, but for now it is what it is
 mv $PWD $HOME/dotfiles
+mkdir -p "$HOME/.local/bin"
 cd .config/dmenu && sudo make clean install && sudo rm config.h
 
 # Creating symbolic links
