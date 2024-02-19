@@ -54,6 +54,8 @@ tiling_drag modifier titlebar
 # start a terminal
 bindsym $mod+Return exec kitty
 bindsym $mod+b exec firefox
+bindsym $mod+Ctrl+h exec betterlockscreen --lock & sleep 3 && systemctl hibernate
+bindsym $mod+Ctrl+l exec betterlockscreen --lock
 
 # kill focused window
 bindsym $mod+w kill

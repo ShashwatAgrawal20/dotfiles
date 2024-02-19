@@ -12,7 +12,7 @@ This is my personal configuration for the i3wm, a lightweight and highly customi
 | Keybinding | Action |
 |---|---|
 | `Mod+Return` | Open a terminal |
-| `Mod+b` | Open Brave browser |
+| `Mod+b` | Open Firefox |
 | `Mod+w` | Kill focused window |
 | `Mod+d` | Launch dmenu |
 | `Mod+p` | Launch rofi |
