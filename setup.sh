@@ -54,7 +54,7 @@ install_git_repo() {
     local target_dir="$2"
     local item_name="$3"
     if [ ! -d "$target_dir" ]; then
-        git clone "$repo_url" "$target_dir" || error "Failed installing $item_name."
+        git clone --depth=1 "$repo_url" "$target_dir" || error "Failed installing $item_name."
     else
         warning "$item_name is already installed in $target_dir. Skipping."
     fi

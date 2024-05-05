@@ -1,6 +1,7 @@
 return {
     "github/copilot.vim",
-    { 'numToStr/Comment.nvim', opts = {} },
+    { 'numToStr/Comment.nvim',                   opts = {} },
+    { 'nvim-treesitter/nvim-treesitter-context', opts = {} },
     {
         'nvim-lualine/lualine.nvim',
         opts = {},
