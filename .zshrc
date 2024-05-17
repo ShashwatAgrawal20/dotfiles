@@ -1,8 +1,9 @@
 # Path to your oh-my-zsh installation.
 VIM="nvim"
+export N_PREFIX=$HOME/.n
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=$VIM
-export PATH=~/.local/bin:~/.cargo/bin:$PATH
+export PATH=~/.local/bin:~/.cargo/bin:~/.n/bin:$PATH
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
