@@ -3,8 +3,8 @@ return {
     dependencies = {
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
-        'folke/neodev.nvim',
-        { 'j-hui/fidget.nvim', opts = {} },
+        { 'folke/lazydev.nvim', ft = 'lua', opts = {} },
+        { 'j-hui/fidget.nvim',  opts = {} },
     },
     config = function()
         --  This function gets run when an LSP connects to a particular buffer.
@@ -27,15 +27,30 @@ return {
             nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
             nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
-            -- See `:help K` for why this keymap
-            nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
             nmap('H', vim.lsp.buf.signature_help, 'Signature Documentation')
+
+            -- who doesn't like some nice borders
+            local _border = "rounded"
+            vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+                vim.lsp.handlers.hover, {
+                    border = _border
+                }
+            )
+            vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+                vim.lsp.handlers.signature_help, {
+                    border = _border
+                }
+            )
+            vim.diagnostic.config {
+                float = { border = _border }
+            }
+            require('lspconfig.ui.windows').default_options = {
+                border = _border
+            }
         end
 
         -- Diagnostic keymaps
         vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, { desc = '[V]im [D]iagnostic' })
-        vim.keymap.set("n", "[d", vim.diagnostic.goto_next, { desc = 'Dignostic [N]ext' })
-        vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, { desc = 'Dignostic [P]revious' })
         vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
         require('mason').setup()
@@ -64,9 +79,6 @@ return {
                 },
             },
         }
-
-        -- Setup neovim lua configuration
-        require('neodev').setup()
 
         -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
         local capabilities = vim.lsp.protocol.make_client_capabilities()
