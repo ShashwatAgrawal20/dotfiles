@@ -1,12 +1,21 @@
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
-        'williamboman/mason.nvim',
-        'williamboman/mason-lspconfig.nvim',
+        {
+            'williamboman/mason.nvim',
+            dependencies = { 'williamboman/mason-lspconfig.nvim' },
+            opts = {
+                ui = { border = "rounded" }
+            }
+        },
         { 'folke/lazydev.nvim', ft = 'lua', opts = {} },
         { 'j-hui/fidget.nvim',  opts = {} },
     },
     config = function()
+        local _border = "rounded"
+        require('lspconfig.ui.windows').default_options = {
+            border = _border,
+        }
         --  This function gets run when an LSP connects to a particular buffer.
         local on_attach = function(_, bufnr)
             local nmap = function(keys, func, desc)
@@ -30,7 +39,6 @@ return {
             nmap('H', vim.lsp.buf.signature_help, 'Signature Documentation')
 
             -- who doesn't like some nice borders
-            local _border = "rounded"
             vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
                 vim.lsp.handlers.hover, {
                     border = _border
@@ -43,9 +51,6 @@ return {
             )
             vim.diagnostic.config {
                 float = { border = _border }
-            }
-            require('lspconfig.ui.windows').default_options = {
-                border = _border
             }
         end
 
