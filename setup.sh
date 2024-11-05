@@ -30,6 +30,8 @@ backup_list=(
     "$HOME/.config/kitty/"
     "$HOME/.config/i3/"
     "$HOME/.config/i3status/"
+    "$HOME/.config/hypr/"
+    "$HOME/.config/waybar/"
     "$HOME/.config/dmenu/"
 )
 
