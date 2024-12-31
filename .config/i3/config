@@ -38,7 +38,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 # exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-bindsym $mod+Shift+b exec --no-startup-id bluetoothctl connect 41:42:90:1C:4B:DE
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -59,6 +58,8 @@ bindsym $mod+Return exec kitty
 bindsym $mod+b exec firefox
 bindsym $mod+Ctrl+h exec betterlockscreen --lock & sleep 3 && systemctl hibernate
 bindsym $mod+Ctrl+l exec betterlockscreen --lock
+bindsym $mod+Shift+b exec --no-startup-id bluetoothctl connect 41:42:90:1C:4B:DE
+bindsym Print exec flameshot gui
 
 # kill focused window
 bindsym $mod+w kill
@@ -182,3 +183,4 @@ bar {
 
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id picom
+exec --no-startup-id ~/.local/bin/battery_reminder

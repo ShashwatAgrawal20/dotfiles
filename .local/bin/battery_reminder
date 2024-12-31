@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+PID_FILE="/tmp/battery_reminder.pid"
+
+if [ -e "$PID_FILE" ] && kill -0 "$(cat "$PID_FILE")" 2>/dev/null; then
+    exit 1
+fi
+
+echo $$ > "$PID_FILE"
+
+trap "rm -f '$PID_FILE'" EXIT
+
+while true; do
+    BATTERY_LEVEL=$(acpi -b | awk '{print $4}' | tr -d ',%')
+    BATTERY_STATUS=$(acpi -b | awk '{print $3}' | tr -d ',')
+
+    if [ $BATTERY_LEVEL -le 20 ] && [ "$BATTERY_STATUS" = "Discharging" ]; then
+        notify-send -u critical "Low Battery" "Battery level is $BATTERY_LEVEL%"
+    fi
+
+    sleep 300
+done

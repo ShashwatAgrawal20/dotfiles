@@ -28,6 +28,12 @@ window#waybar {
     background-color: #285577;
 }
 
+#workspaces button:hover {
+	border: #1a1a1a;
+	padding: 0 3px;
+    color: black;
+}
+
 #pulseaudio {
 	color: #268bd2;
 }

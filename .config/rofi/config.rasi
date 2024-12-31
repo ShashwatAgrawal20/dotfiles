@@ -25,7 +25,7 @@ configuration {
     icon-theme: "Pop";
 }
 
-@theme "/dev/null"
+//@theme "/dev/null"
 
 * {
     foreground:  #ffeedd;
@@ -169,3 +169,5 @@ error-message {
     border: 2px;
     padding: 1em;
 }
+//@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
+@theme "/usr/share/rofi/themes/DarkBlue.rasi"

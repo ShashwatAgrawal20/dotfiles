@@ -19,6 +19,7 @@ github_items=(
 backup_list=(
     "$HOME/.zshrc"
     "$HOME/.tmux.conf"
+    "$HOME/.clang-format"
     "$HOME/.tmux-cht-command"
     "$HOME/.tmux-cht-languages"
     "$HOME/.local/bin/"
@@ -33,6 +34,7 @@ backup_list=(
     "$HOME/.config/hypr/"
     "$HOME/.config/waybar/"
     "$HOME/.config/dmenu/"
+    "$HOME/.config/clangd/"
 )
 
 # Georgeous Functions
@@ -139,6 +141,7 @@ cd .config/dmenu && sudo make clean install && sudo rm config.h
 
 # Creating symbolic links
 ln -sf $HOME/dotfiles/.zshrc $HOME/
+ln -sf $HOME/dotfiles/.clang-format $HOME/
 ln -sf $HOME/dotfiles/.tmux.conf $HOME/
 ln -sf $HOME/dotfiles/.tmux-* $HOME/
 ln -sf $HOME/dotfiles/.local/bin/* $HOME/.local/bin/

@@ -1,3 +1,4 @@
+acpi
 adobe-source-code-pro-fonts
 adobe-source-sans-fonts
 base-devel
@@ -37,4 +38,3 @@ ttf-roboto
 ttf-ubuntu-font-family
 xclip
 zsh
-
