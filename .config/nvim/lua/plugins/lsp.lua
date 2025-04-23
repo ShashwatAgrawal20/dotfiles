@@ -4,55 +4,37 @@ return {
         {
             'williamboman/mason.nvim',
             dependencies = { 'williamboman/mason-lspconfig.nvim' },
-            opts = {
-                ui = { border = "rounded" }
-            }
         },
         { 'folke/lazydev.nvim', ft = 'lua', opts = {} },
         { 'j-hui/fidget.nvim',  opts = {} },
     },
     config = function()
-        local _border = "rounded"
-        require('lspconfig.ui.windows').default_options = {
-            border = _border,
-        }
         --  This function gets run when an LSP connects to a particular buffer.
-        local on_attach = function(_, bufnr)
-            local nmap = function(keys, func, desc)
-                if desc then
-                    desc = 'LSP: ' .. desc
+        vim.api.nvim_create_autocmd('LspAttach', {
+            group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
+
+            callback = function(event)
+                local nmap = function(keys, func, desc)
+                    if desc then
+                        desc = 'LSP: ' .. desc
+                    end
+
+                    vim.keymap.set('n', keys, func, { buffer = event.buf, desc = desc })
                 end
 
-                vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+                nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+                nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+
+                nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+                nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+                nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+                nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+                nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+                nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+
+                nmap('H', vim.lsp.buf.signature_help, 'Signature Documentation')
             end
-
-            nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-            nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-
-            nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-            nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-            nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-            nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-            nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-            nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
-
-            nmap('H', vim.lsp.buf.signature_help, 'Signature Documentation')
-
-            -- who doesn't like some nice borders
-            vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-                vim.lsp.handlers.hover, {
-                    border = _border
-                }
-            )
-            vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-                vim.lsp.handlers.signature_help, {
-                    border = _border
-                }
-            )
-            vim.diagnostic.config {
-                float = { border = _border }
-            }
-        end
+        })
 
         -- Diagnostic keymaps
         vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, { desc = '[V]im [D]iagnostic' })
@@ -70,7 +52,13 @@ return {
         --  If you want to override the default filetypes that your language server will attach to you can
         --  define the property 'filetypes' to the map in question.
         local servers = {
-            -- clangd = {},
+            clangd = {
+                cmd = {
+                    "clangd",                   -- Ensure the full path to clangd is specified
+                    "--background-index",       -- Enable background indexing
+                    "--header-insertion=never", -- Disable header insertion
+                },
+            },
             -- gopls = {},
             -- pyright = {},
             -- rust_analyzer = {},
@@ -96,15 +84,17 @@ return {
             ensure_installed = vim.tbl_keys(servers),
         }
 
-        mason_lspconfig.setup_handlers {
-            function(server_name)
-                require('lspconfig')[server_name].setup {
+        -- require('lspconfig').clangd.setup({})
+
+        require("mason-lspconfig").setup_handlers {
+            function(server)
+                local config = vim.tbl_deep_extend("force", {
                     capabilities = capabilities,
-                    on_attach = on_attach,
-                    settings = servers[server_name],
-                    filetypes = (servers[server_name] or {}).filetypes,
-                }
-            end,
+                    -- on_attach = on_attach,
+                }, servers[server] or {})
+
+                require("lspconfig")[server].setup(config)
+            end
         }
     end
 }

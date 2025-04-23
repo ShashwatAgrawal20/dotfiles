@@ -12,10 +12,22 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     end,
 })
 
+-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+--     desc = 'Remove trailing whitespace before writing buffer to a file',
+--     group = vim.api.nvim_create_augroup('buf-pre-write-trim-group', { clear = true }),
+--     command = [[%s/\s\+$//e]],
+-- })
+--
+-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+--     desc = 'Remove empty lines at the end of the file before writing buffer to a file',
+--     group = vim.api.nvim_create_augroup('buf-pre-write-trim-eof-group', { clear = true }),
+--     command = [[%s/\n\+\%$//e]],
+-- })
+
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-    desc = 'Remove trailing whitespace before writing buffer to a file',
+    desc = "Trim trailing spaces and clean empty lines at EOF on save",
     group = vim.api.nvim_create_augroup('buf-pre-write-trim-group', { clear = true }),
-    command = [[%s/\s\+$//e]],
+    command = [[%s/\s\+$//e | %s/\n\+\%$//e]],
 })
 
 vim.g.netrw_browse_split = 0

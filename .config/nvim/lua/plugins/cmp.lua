@@ -18,6 +18,7 @@ return {
         local luasnip = require 'luasnip'
         require('luasnip').filetype_extend("javascript", { "javascriptreact" })
         require('luasnip').filetype_extend("javascript", { "html" })
+        require('luasnip').filetype_extend("typescriptreact", { "html" })
         require('luasnip.loaders.from_vscode').lazy_load()
         luasnip.config.setup({})
 
@@ -28,7 +29,7 @@ return {
                 end,
             },
             completion = {
-                completeopt = 'menu,menuone,noinsert'
+                completeopt = 'fuzzy,menu,menuone,noinsert'
             },
             window = {
                 documentation = cmp.config.window.bordered(),

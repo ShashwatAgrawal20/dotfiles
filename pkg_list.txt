@@ -19,6 +19,7 @@ nodejs
 npm
 otf-font-awesome
 picom
+polkit-gnome
 pop-icon-theme
 powerline-fonts
 python-psutil

@@ -1,9 +1,9 @@
-CompileFlags:
-    Add: [-I/usr/src/linux-lts/include/]
-    Remove: [   -mpreferred-stack-boundary=*,
-                -mindirect-branch*,
-                -fno-allow-store-data-races,
-                -fno-var-tracking-assignments,
-                -fconserve-stack,
-                -mrecord-mcount,
-            ]
+# CompileFlags:
+#     Add: [-I/usr/src/linux-lts/include/]
+#     Remove: [   -mpreferred-stack-boundary=*,
+#                 -mindirect-branch*,
+#                 -fno-allow-store-data-races,
+#                 -fno-var-tracking-assignments,
+#                 -fconserve-stack,
+#                 -mrecord-mcount,
+#             ]
