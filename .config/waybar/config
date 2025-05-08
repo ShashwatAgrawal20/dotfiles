@@ -13,6 +13,7 @@
         "clock",
 		"pulseaudio",
         "tray",
+        "custom/lock",
 	],
 
 	"hyprland/workspaces": {
@@ -69,5 +70,10 @@
     },
 	"tray": {
 		"icon-size": 20
-	}
-}
+	},
+    "custom/lock": {
+        "tooltip": false,
+        "on-click": "sh -c '(sleep 0.5s; hyprlock)' & disown",
+        "format": ""
+    }
+},

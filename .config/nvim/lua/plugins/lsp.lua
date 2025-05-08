@@ -2,9 +2,10 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
         {
-            'williamboman/mason.nvim',
-            dependencies = { 'williamboman/mason-lspconfig.nvim' },
+            'mason-org/mason.nvim',
+            dependencies = { 'mason-org/mason-lspconfig.nvim' },
         },
+        'saghen/blink.cmp',
         { 'folke/lazydev.nvim', ft = 'lua', opts = {} },
         { 'j-hui/fidget.nvim',  opts = {} },
     },
@@ -41,60 +42,20 @@ return {
         vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
         require('mason').setup()
-        require('mason-lspconfig').setup()
-
-        -- Enable the following language servers
-        --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
-        --
-        --  Add any additional override configuration in the following tables. They will be passed to
-        --  the `settings` field of the server config. You must look up that documentation yourself.
-        --
-        --  If you want to override the default filetypes that your language server will attach to you can
-        --  define the property 'filetypes' to the map in question.
-        local servers = {
-            clangd = {
-                cmd = {
-                    "clangd",                   -- Ensure the full path to clangd is specified
-                    "--background-index",       -- Enable background indexing
-                    "--header-insertion=never", -- Disable header insertion
-                },
-            },
-            -- gopls = {},
-            -- pyright = {},
-            -- rust_analyzer = {},
-            -- tsserver = {},
-            -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-
-            lua_ls = {
-                Lua = {
-                    workspace = { checkThirdParty = false },
-                    telemetry = { enable = false },
-                },
-            },
+        require("mason-lspconfig").setup {
+            ensure_installed = { "lua_ls", "clangd" },
+            automatic_enable = true,
         }
 
-        -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
-        -- Ensure the servers above are installed
-        local mason_lspconfig = require 'mason-lspconfig'
-
-        mason_lspconfig.setup {
-            ensure_installed = vim.tbl_keys(servers),
-        }
-
-        -- require('lspconfig').clangd.setup({})
-
-        require("mason-lspconfig").setup_handlers {
-            function(server)
-                local config = vim.tbl_deep_extend("force", {
-                    capabilities = capabilities,
-                    -- on_attach = on_attach,
-                }, servers[server] or {})
-
-                require("lspconfig")[server].setup(config)
-            end
+        vim.lsp.config.clangd = {
+            cmd = {
+                vim.fn.stdpath("data") .. "/mason/bin/clangd", -- Correct path using stdpath
+                "--clang-tidy",
+                "--background-index",
+                "--header-insertion=never",
+            },
+            root_markers = { '.clangd', 'compile_commands.json' },
+            filetypes = { 'c', 'cpp' },
         }
     end
 }

@@ -15,6 +15,7 @@ window#waybar {
 #cpu,
 #battery,
 #disk,
+#custom-lock,
 #tray {
 	background: #1a1a1a;
 }
@@ -50,11 +51,16 @@ window#waybar {
 	color: #b58900;
 }
 
+#custom-lock {
+  color: #babbf1;
+}
+
 #clock,
 #pulseaudio,
 #memory,
 #cpu,
 #battery,
+#custom-lock,
 #disk {
 	padding: 0 10px;
 }
