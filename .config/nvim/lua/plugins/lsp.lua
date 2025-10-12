@@ -57,5 +57,10 @@ return {
             root_markers = { '.clangd', 'compile_commands.json' },
             filetypes = { 'c', 'cpp' },
         }
+        vim.lsp.config.asm_lsp = {
+            cmd = { "asm-lsp" },
+            filetypes = { 'asm', 'nasm', 'vmasm' },
+            root_markers = { '.asm-lsp.toml', '.git' },
+        }
     end
 }

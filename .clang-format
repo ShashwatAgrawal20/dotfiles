@@ -1,4 +1,2 @@
-BasedOnStyle: Google
+BasedOnStyle: LLVM
 IndentWidth: 4
-DerivePointerAlignment: false
-PointerAlignment: Right

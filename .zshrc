@@ -3,7 +3,7 @@ VIM="nvim"
 export N_PREFIX=$HOME/.n
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=$VIM
-export PATH=~/.local/bin:~/.cargo/bin:~/.n/bin:$PATH
+export PATH=~/.local/bin:~/.cargo/bin:~/.n/bin:/mnt/external/depot_tools:$PATH
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -113,3 +113,13 @@ alias la='exa -a --group-directories-first'  # all files and dirs
 alias ll='exa -l --group-directories-first'  # long format
 alias lt='exa -aT --group-directories-first' # tree listing
 alias l.='exa -a | egrep "^\."'
+
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
