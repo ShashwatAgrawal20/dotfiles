@@ -2,9 +2,9 @@ require("general.set")
 require("general.remap")
 require("general.lazy-setup")
 
-vim.api.nvim_create_autocmd('TextYankPost', {
-    desc = 'Highlight when yanking (copying) text',
-    group = vim.api.nvim_create_augroup('highlight-yank-group', { clear = true }),
+vim.api.nvim_create_autocmd("TextYankPost", {
+    desc = "Highlight when yanking (copying) text",
+    group = vim.api.nvim_create_augroup("highlight-yank-group", { clear = true }),
     callback = function()
         vim.highlight.on_yank({
             timeout = 40,
@@ -26,7 +26,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     desc = "Trim trailing spaces and clean empty lines at EOF on save",
-    group = vim.api.nvim_create_augroup('buf-pre-write-trim-group', { clear = true }),
+    group = vim.api.nvim_create_augroup("buf-pre-write-trim-group", { clear = true }),
     command = [[%s/\s\+$//e | %s/\n\+\%$//e]],
 })
 

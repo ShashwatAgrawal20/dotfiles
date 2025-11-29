@@ -9,7 +9,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -37,7 +37,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # beautiful multimedia controls
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -188,7 +188,7 @@ bar {
         status_command i3status
 }
 
-exec --no-startup-id nitrogen --restore
+exec --no-startup-id ~/.fehbg
 exec --no-startup-id picom
 exec --no-startup-id ~/.local/bin/battery_reminder
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

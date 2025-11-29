@@ -20,6 +20,7 @@ backup_list=(
     "$HOME/.zshrc"
     "$HOME/.tmux.conf"
     "$HOME/.clang-format"
+    "$HOME/.fehbg"
     "$HOME/.tmux-cht-command"
     "$HOME/.tmux-cht-languages"
     "$HOME/.local/bin/"
@@ -124,10 +125,6 @@ else
     warning "paru is already installed. Skipping installation."
 fi
 
-if ! nitrogen --set-scaled --save $HOME/Pictures/wallpaper/0013.jpeg; then
-    error "failed setting up wallpaper."
-fi
-
 echo ""
 echo "*******************************************************************"
 echo "**              Moving the files to their location               **"
@@ -141,6 +138,7 @@ cd .config/dmenu && sudo make clean install && sudo rm config.h
 
 # Creating symbolic links
 ln -sf $HOME/dotfiles/.zshrc $HOME/
+ln -sf $HOME/dotfiles/.fehbg $HOME/
 ln -sf $HOME/dotfiles/.clang-format $HOME/
 ln -sf $HOME/dotfiles/.tmux.conf $HOME/
 ln -sf $HOME/dotfiles/.tmux-* $HOME/

@@ -11,6 +11,7 @@ cowsay
 curl
 dunst
 exa
+feh
 flameshot
 fzf
 git
@@ -23,7 +24,6 @@ imagemagick
 kitty
 neovim
 network-manager-applet
-nitrogen
 nodejs
 npm
 otf-font-awesome
@@ -49,6 +49,7 @@ ttf-jetbrains-mono-nerd
 ttf-nerd-fonts-symbols-common
 ttf-roboto
 ttf-ubuntu-font-family
+uwsm
 waybar
 wl-clipboard
 xclip
