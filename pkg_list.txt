@@ -1,5 +1,4 @@
 acpi
-adobe-source-code-pro-fonts
 adobe-source-sans-fonts
 base-devel
 bc

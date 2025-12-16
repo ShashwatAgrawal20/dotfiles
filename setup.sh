@@ -116,13 +116,13 @@ if ! chsh -s $(which zsh); then
     error "failed changing default shell to zsh."
 fi
 
-if ! command -v paru &> /dev/null; then
-    echo "Installing paru..."
-    if ! (git clone https://aur.archlinux.org/paru-bin "$HOME/Downloads/paru-bin/" && cd "$HOME/Downloads/paru-bin/" && makepkg -si); then
-        warning "Failed to install paru."
+if ! command -v yay &> /dev/null; then
+    echo "Installing yay..."
+    if ! (git clone https://aur.archlinux.org/yay-bin "$HOME/Downloads/yay-bin/" && cd "$HOME/Downloads/yay-bin/" && makepkg -si); then
+        warning "Failed to install yay."
     fi
 else
-    warning "paru is already installed. Skipping installation."
+    warning "yay is already installed. Skipping installation."
 fi
 
 echo ""
