@@ -36,6 +36,7 @@ backup_list=(
     "$HOME/.config/waybar"
     "$HOME/.config/dmenu"
     "$HOME/.config/clangd"
+    "$HOME/.config/flameshot"
 )
 
 # Georgeous Functions
@@ -50,8 +51,12 @@ warning() {
 }
 backup() {
     local source_path="$1"
+
     if [ -e "$source_path" ]; then
-        mv "$source_path" "$backup_dir/" 2>/dev/null && success "Backed up: $source_path to $backup_dir/" || warning "Failed to back up: $source_path"
+        mkdir -p "$backup_dir"
+        mv "$source_path" "$backup_dir/" 2>/dev/null \
+            && success "Backed up: $source_path to $backup_dir/" \
+            || warning "Failed to back up: $source_path"
     fi
 }
 install_git_repo() {
@@ -64,7 +69,6 @@ install_git_repo() {
         warning "$item_name is already installed in $target_dir. Skipping."
     fi
 }
-mkdir -p $backup_dir
 
 echo ""
 echo "******************************************"

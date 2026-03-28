@@ -1,9 +1,23 @@
 # Path to your oh-my-zsh installation.
+typeset -U path PATH
 VIM="nvim"
 export N_PREFIX=$HOME/.n
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=$VIM
-export PATH=~/.local/bin:~/.cargo/bin:~/.n/bin:/mnt/external/depot_tools:$PATH
+export WINEPREFIX=/mnt/external/wine
+
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+
+add_path() {
+  [[ -d $1 ]] && path=($1 $path)
+}
+
+add_path ~/.local/bin
+add_path ~/.cargo/bin
+add_path ~/.n/bin
+add_path /mnt/external/depot_tools
+add_path /mnt/external/msvc-wine/bin/x64
+add_path $HOME/.bun/bin
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -114,12 +128,12 @@ alias ll='exa -l --group-directories-first'  # long format
 alias lt='exa -aT --group-directories-first' # tree listing
 alias l.='exa -a | egrep "^\."'
 
-# bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
+[[ -d $HOME/.bun ]] && export BUN_INSTALL="$HOME/.bun"
+
+if [[ -d "$HOME/.pyenv" ]]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  add_path "$PYENV_ROOT/bin"
+  eval "$(pyenv init - zsh)"
+fi
