@@ -10,9 +10,9 @@ from libqtile.lazy import lazy
 from libqtile.dgroups import simple_key_binder
 import colors
 
-mod = "mod1"
+mod = "mod4"
 myTerminal = "kitty"  # guess_terminal()
-myBrowser = "firefox"
+myBrowser = "brave" # xdg-open https://
 Primary_Menu = "rofi -show drun"
 Secondary_Menu = "dmenu_run"
 colors, backgroundColor, foregroundColor, workspaceColor, chordsColor = colors.doomone()
@@ -309,7 +309,7 @@ screens = [
                     padding=10,
                 ),
                 widget.Sep(linewidth=1, padding=10, foreground=colors[2]),
-                widget.CurrentLayoutIcon(
+                widget.CurrentLayout(
                     scale=0.5, foreground=foregroundColor, background=backgroundColor
                 ),
                 widget.Systray(),

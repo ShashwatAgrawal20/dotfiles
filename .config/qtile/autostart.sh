@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # Starting picom Compositor
 picom &
 
@@ -8,5 +7,4 @@ picom &
 # /usr/bin/emacs --daemon &
 
 # Restoring the wallpaper
-nitrogen --restore &
-
+~/.fehbg
