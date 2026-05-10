@@ -6,6 +6,8 @@ blueman
 bluez
 bluez-utils
 cliphist
+clipmenu
+coreutils
 cowsay
 curl
 dunst

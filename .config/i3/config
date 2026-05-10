@@ -38,6 +38,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id setxkbmap -option caps:swapescape
+exec --no-startup-id clipmenud
+bindsym $mod+Ctrl+v exec --no-startup-id clipmenu -p "clipboard" -fn "monospace" -nb "#1e1e2e"
 
 # beautiful multimedia controls
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -58,7 +61,7 @@ floating_modifier $mod
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
+# tiling_drag modifier titlebar
 
 # start a terminal
 bindsym $mod+Return exec kitty
