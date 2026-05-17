@@ -109,6 +109,10 @@ if ! sudo pacman --needed --ask 4 -Sy - < pkg_list.txt; then
     exit 1
 fi
 
+if ! xdg-user-dirs-update; then
+    error "failed creating xdg user directories."
+fi
+
 for item in "${github_items[@]}"; do
     read -r repo_url target_dir item_name <<< "$item"
 

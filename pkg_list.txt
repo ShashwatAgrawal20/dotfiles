@@ -29,6 +29,7 @@ network-manager-applet
 nodejs
 npm
 otf-font-awesome
+pcmanfm
 picom
 pipewire
 pipewire-alsa
@@ -56,4 +57,5 @@ waybar
 wl-clipboard
 xclip
 xdg-desktop-portal-hyprland
+xdg-user-dirs
 zsh
